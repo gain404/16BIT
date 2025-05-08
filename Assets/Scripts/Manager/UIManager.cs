@@ -25,4 +25,14 @@ public class UIManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void openPanel(GameObject panel)
+    {
+        panel.SetActive(true);
+    }
+
+    public void closePanel(GameObject panel)
+    {
+        panel.SetActive(false);
+    }
 }
