@@ -21,7 +21,6 @@ public class ButtonManager : MonoBehaviour
     {
         // 현재 스테이지씬 다시 시작
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
     }
 
     public void OnClickPauseButton()
