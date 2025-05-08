@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ButtonManager : MonoBehaviour
+public class ButtonHandler : MonoBehaviour
 {
     public void OnClickStartButton(string stageName) // 스테이지가 여러 개이기 때문에, 선택한 스테이지 이름과 같은 값을 입력
     {
