@@ -26,12 +26,12 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void openPanel(GameObject panel)
+    public void OpenPanel(GameObject panel)
     {
         panel.SetActive(true);
     }
 
-    public void closePanel(GameObject panel)
+    public void ClosePanel(GameObject panel)
     {
         panel.SetActive(false);
     }
