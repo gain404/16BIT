@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class ButtonManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject startBtn;
+    public GameObject exitBtn;
+    public GameObject retryBtn;
+    public GameObject pauseBtn;
+    public GameObject resumeBtn;
 
-    // Update is called once per frame
-    void Update()
+    public enum ButtonType
     {
-        
+        Start,
+        Exit,
+        Retry,
+        Pause,
+        Resume
     }
 }
