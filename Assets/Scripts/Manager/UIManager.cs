@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-
     public GameObject gameClearPanel;
     public GameObject gameOverPanel;
     public GameObject gamePausePanel;
