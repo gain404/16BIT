@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
+    public GameObject stageClearStarPanel;
+    public GameObject stageUnclearStarPanel;
+    public GameObject timeClearStarPanel;
+    public GameObject timeUnclearStarPanel;
+    public GameObject zemClearStarPanel;
+    public GameObject zemUnclearStarPanel;
     public GameObject gameClearPanel;
     public GameObject gameOverPanel;
     public GameObject gamePausePanel;
@@ -33,5 +39,35 @@ public class UIManager : MonoBehaviour
     public void ClosePanel(GameObject panel) // // 코드 사용 예시 : UIManager.instance.ClosePanel(UIManager.instance.gameClearPanel);
     {
         panel.SetActive(false);
+    }
+
+    public void ShowStarResult()
+    {
+        if (LevelManager.Instance.getClearStar)
+        {
+            stageClearStarPanel.SetActive(true);
+        }
+        else
+        {
+            stageUnclearStarPanel.SetActive(true);
+        }
+
+        if (LevelManager.Instance.getTimeStar)
+        {
+            timeClearStarPanel.SetActive(true);
+        }
+        else
+        {
+            timeUnclearStarPanel.SetActive(true);
+        }
+
+        if (LevelManager.Instance.getZemStar)
+        {
+            zemClearStarPanel.SetActive(true);
+        }
+        else
+        {
+            zemUnclearStarPanel.SetActive(true);
+        }
     }
 }
