@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaterCharacterController : MonoBehaviour
+public class WaterCharacterController : PlayerController
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void Awake()
     {
-        
+        base.Awake();
+        // Water 전용 초기화
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void PlayerCollision()
     {
-        
+        base.PlayerCollision();
+        // Water 전용 충돌 처리
     }
 }
