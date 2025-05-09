@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     public GameObject gameOverPanel;
     public GameObject gamePausePanel;
     public GameObject gameSettingsPanel;
+    public GameObject inGamePanel;
 
     public static UIManager instance { get; private set; }
 
@@ -31,18 +32,16 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void OpenPanel(GameObject panel) // 코드 사용 예시 : UIManager.instance.OpenPanel(UIManager.instance.gameClearPanel);
-    {
-        panel.SetActive(true);
-    }
-
-    public void ClosePanel(GameObject panel) // // 코드 사용 예시 : UIManager.instance.ClosePanel(UIManager.instance.gameClearPanel);
-    {
-        panel.SetActive(false);
-    }
-
     public void ShowStarResult()
     {
+        // 모든 별 초기화
+        stageClearStarPanel.SetActive(false);
+        stageUnclearStarPanel.SetActive(false);
+        timeClearStarPanel.SetActive(false);
+        timeUnclearStarPanel.SetActive(false);
+        zemClearStarPanel.SetActive(false);
+        zemUnclearStarPanel.SetActive(false);
+
         if (LevelManager.Instance.getClearStar)
         {
             stageClearStarPanel.SetActive(true);
