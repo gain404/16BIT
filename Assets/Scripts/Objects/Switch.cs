@@ -11,6 +11,7 @@ public class Switch : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log("Switch OnTriggerEnter");
             OnSwitchStateChanged?.Invoke(true);
         }
     }
@@ -19,6 +20,7 @@ public class Switch : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log("Switch OnTriggerExit");
             OnSwitchStateChanged?.Invoke(false);
         }
     }

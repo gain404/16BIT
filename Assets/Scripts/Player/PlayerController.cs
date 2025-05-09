@@ -9,6 +9,8 @@ public abstract class PlayerController : MonoBehaviour
     protected Rigidbody2D _rigidbody;
     protected bool isGrounded = false;
 
+    public PlayerType playerType; //플레이어 타입
+
     protected virtual void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
