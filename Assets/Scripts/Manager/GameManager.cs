@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
+    public static GameManager instance { get; private set; }
 
     private int playersAtExit = 0;
     private int totalPlayers = 2;
@@ -16,9 +16,9 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         //싱글톤
-        if (Instance == null)
+        if (instance == null)
         {
-            Instance = this;
+            instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -43,8 +43,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("일시정지");
         isPaused = true;
         Time.timeScale = 0;
-        //UI 매니저에서 관리
-        //UIManager.Instance.pauseMenuUI.SetActive(true);
+        UIManager.instance.gamePausePanel.SetActive(true);
     }
 
     public void ResumeGame()
@@ -52,8 +51,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("게임 재개");
         isPaused = false;
         Time.timeScale = 1;
-        //UI 매니저에서 관리
-        //UIManager.Instance.pauseMenuUI.SetActive(false);
+        UIManager.instance.gamePausePanel.SetActive(false);
     }
 
     public void RetryGame()
@@ -81,7 +79,7 @@ public class GameManager : MonoBehaviour
             isGameOver = true;
             Time.timeScale = 0;
             //게임오버 UI
-            //UIManager.Instance.gameOverUI.SetActive(true);
+            UIManager.instance.gameOverPanel.SetActive(true);
         }
     }
 
