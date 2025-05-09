@@ -4,15 +4,34 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject gameClearPanel;
+    public GameObject gameOverPanel;
+    public GameObject gamePausePanel;
+    public GameObject gameSettingsPanel;
+
+    public static UIManager instance { get; private set; }
+
+    private void Awake()
     {
-        
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OpenPanel(GameObject panel) // 코드 사용 예시 : UIManager.instance.OpenPanel(UIManager.instance.gameClearPanel);
     {
-        
+        panel.SetActive(true);
+    }
+
+    public void ClosePanel(GameObject panel) // // 코드 사용 예시 : UIManager.instance.ClosePanel(UIManager.instance.gameClearPanel);
+    {
+        panel.SetActive(false);
     }
 }
