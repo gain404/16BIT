@@ -18165,6 +18165,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4850eaabc24d4f439c2db98f61f08a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageClearStarPanel: {fileID: 0}
+  stageUnclearStarPanel: {fileID: 0}
+  timeClearStarPanel: {fileID: 0}
+  timeUnclearStarPanel: {fileID: 0}
+  zemClearStarPanel: {fileID: 0}
+  zemUnclearStarPanel: {fileID: 0}
   gameClearPanel: {fileID: 0}
   gameOverPanel: {fileID: 0}
   gamePausePanel: {fileID: 0}
