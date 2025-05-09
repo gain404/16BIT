@@ -6,7 +6,7 @@ using UnityEngine;
 public class Lever : MonoBehaviour
 {
     //델리게이트로 부딪혔을 때 이벤트 호출
-    public delegate void LiftChange(bool isPressed);
+    public delegate void LiftChange(Lever lever, bool isPressed);
     public event LiftChange OnLiftChanged;
 
     private void Update()
@@ -20,7 +20,7 @@ public class Lever : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            OnLiftChanged?.Invoke(true);
+            OnLiftChanged?.Invoke(this, true);
         }
     }
 

@@ -10,7 +10,7 @@ public class LeverLiftController : MonoBehaviour
     [SerializeField] private List<Lever> levers; //레버 할당
     public Dictionary<Lever, bool> dict;
 
-    [SerializeField] private Transform Lift;
+    [SerializeField] private Transform liftTransform;
 
     private float liftSpeed = 1f;
     private bool isMoving;
@@ -21,20 +21,32 @@ public class LeverLiftController : MonoBehaviour
         foreach (var lever in levers)
         {
             dict[lever] = false;
-            lever.OnLiftChanged += (isPressed) =>
-            {
-                dict[lever] = isPressed;
-                isMoving = dict.Values.All(v => v); //레버를 모두 눌러야 리프트가 올라가게 만듦
-                //하나만 눌러도 올라가게 만들고 싶으면 isMoving = isPressed
-            };
+            lever.OnLiftChanged += LiftPressed; //구독
         }
+    }
+
+    private void LiftPressed(Lever lever, bool isPressed)
+    {
+        dict[lever] = isPressed;
+        isMoving = dict.Values.All(v => v);
     }
 
     private void Update()
     {
         if (isMoving)
         {
-            Lift.Translate(Vector3.up * liftSpeed * Time.deltaTime);
+            liftTransform.Translate(Vector3.up * liftSpeed * Time.deltaTime);
+            Vector3 localLift = liftTransform.localPosition;
+            localLift.y = Mathf.Clamp(localLift.y, 0f, 3f); //3f만큼 올라가도록 제한
         }
     }
+
+    private void OnDestroy()
+    {
+        foreach( var lever in levers)
+        {
+            lever.OnLiftChanged -= LiftPressed; //구독 해제
+        }
+    }
+
 }
