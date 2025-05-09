@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("게임 시작");
         //레벨매니저를 이용한 시작 씬 로드
-        //LevelManager.Instance.;
+        //LevelManager.instance.;
     }
     public void QuitGame()
     {
@@ -83,8 +83,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    //탈출구 도달시
-    public void ReachedExit()
+    public void GameClear()
     {
         //도착한 플레이어가 두 명 이상일 시
         playersAtExit++;
@@ -92,6 +91,7 @@ public class GameManager : MonoBehaviour
         {
             //레벨 클리어
             isGameOver = true;
+            UIManager.instance.gameClearPanel.SetActive(true);
             //LevelManager.Instance.levelClearUI.SetActive(true);
         }
     }
