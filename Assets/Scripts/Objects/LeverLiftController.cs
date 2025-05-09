@@ -7,12 +7,12 @@ using UnityEngine;
 public class LeverLiftController : MonoBehaviour
 {
     //레버마다 bool값 할당
-    [SerializeField] private List<Lever> levers; //레버 할당
+    [SerializeField] private List<Lever> levers; //인스펙터에서 레버 할당
     public Dictionary<Lever, bool> dict;
 
     [SerializeField] private Transform liftTransform;
 
-    private float liftSpeed = 1f;
+    private float liftSpeed = 5f;
     private bool isMoving;
 
     private void Start()
@@ -33,11 +33,23 @@ public class LeverLiftController : MonoBehaviour
 
     private void Update()
     {
+        Invoke("UPLift", 1f);
+    }
+
+    private void UPLift()
+    {
         if (isMoving)
         {
             liftTransform.Translate(Vector3.up * liftSpeed * Time.deltaTime);
-            Vector3 localLift = liftTransform.localPosition;
-            localLift.y = Mathf.Clamp(localLift.y, 0f, 3f); //3f만큼 올라가도록 제한
+
+            Vector3 pos = liftTransform.localPosition;
+            pos.y = Mathf.Clamp(pos.y, pos.y, 3f); //3f만큼 올라가도록 제한
+            liftTransform.localPosition = pos;
+
+            if (Mathf.Approximately(pos.y, 3f)) //worldPos가 3f에 가까워졌으면
+            {
+                isMoving = false; //움직임 멈춤
+            }
         }
     }
 

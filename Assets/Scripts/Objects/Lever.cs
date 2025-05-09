@@ -8,6 +8,12 @@ public class Lever : MonoBehaviour
     //델리게이트로 부딪혔을 때 이벤트 호출
     public delegate void LiftChange(Lever lever, bool isPressed);
     public event LiftChange OnLiftChanged;
+    private GameObject[] players;
+
+    private void Awake()
+    {
+        players = GameObject.FindGameObjectsWithTag("Player");
+    }
 
     private void Update()
     {
@@ -18,9 +24,15 @@ public class Lever : MonoBehaviour
     //레버를 누르는 키 : e
     private void PushLever()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        for (int i = 0;  i < players.Length; i++)
         {
-            OnLiftChanged?.Invoke(this, true);
+            Vector3 pos = transform.position;
+            Vector3 playerPos = players[i].transform.position;
+
+            if (Input.GetKeyDown(KeyCode.E) && Vector3.Distance(playerPos, pos) < 0.01f)
+            {
+                OnLiftChanged?.Invoke(this, true);
+            }
         }
     }
 
