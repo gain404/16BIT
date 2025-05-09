@@ -1,66 +1,59 @@
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public abstract class PlayerController : MonoBehaviour
 {
-    public float playerMove = 5f;
-    public float playerJump = 7f;
+    public float moveSpeed = 5f;
+    public float jumpForce = 7f;
     public bool isDie = false;
 
-    protected Rigidbody2D rigid;
+    protected Rigidbody2D _rigidbody;
     protected bool isGrounded = false;
-
-    // 캐릭터 이동을 위한 입력 키 설정
-    private string horizontalInput;
-    private string verticalInput;
-    private string jumpInput;
-
-    // 입력 값으로 키를 전달받을 수 있도록 설정
-    public void SetControlKeys(string horizontal, string vertical, string jump)
-    {
-        horizontalInput = horizontal;
-        verticalInput = vertical;
-        jumpInput = jump;
-    }
 
     protected virtual void Awake()
     {
-        rigid = GetComponent<Rigidbody2D>();
+        _rigidbody = GetComponent<Rigidbody2D>();
     }
 
+    //InputManager에서 키 설정 후 가져옴
+    protected abstract string GetHorizontalAxis();
+    protected abstract string GetJumpButton();
     protected virtual void Update()
     {
-        PlayerMove();
-        PlayerJump();
-    }
+        //키 할당
+        float horizontal = Input.GetAxisRaw(GetHorizontalAxis());
 
-    public virtual void PlayerMove()
-    {
-        // 해당 입력 키에 따라 이동
-        float h = Input.GetAxis(horizontalInput);
-        rigid.velocity = new Vector2(h * playerMove, rigid.velocity.y);  // 수평 이동
-    }
+        Move(horizontal);
 
-    public virtual void PlayerJump()
-    {
-        if (Input.GetButtonDown(jumpInput) && isGrounded)
+        if (isGrounded && Input.GetButtonDown(GetJumpButton()))
         {
-            rigid.velocity = new Vector2(rigid.velocity.x, playerJump);  // 수직 점프
-            isGrounded = false;
+            Jump();
         }
     }
 
-    public virtual void PlayerCollision()
+    public virtual void Move(float horizontal)
     {
-        // 공통 충돌 처리
+        _rigidbody.velocity = new Vector2(horizontal * moveSpeed, _rigidbody.velocity.y);
     }
 
-    protected virtual void OnCollisionEnter2D(Collision2D collision)
+    public virtual void Jump()
     {
+        _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse); 
+    }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        // 땅과 충돌했을 때, isGrounded를 true로 설정
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
         }
+    }
 
-        PlayerCollision();
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        // 땅과 떨어졌을 때, isGrounded를 false로 설정
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = false;
+        }
     }
 }

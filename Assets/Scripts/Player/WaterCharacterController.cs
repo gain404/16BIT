@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class WaterCharacterController : PlayerController
 {
-    protected override void Awake()
+    protected override string GetHorizontalAxis()
     {
-        base.Awake();
-        // Water 전용 초기화
+        return "WaterHorizontal";
     }
 
-    public override void PlayerCollision()
+    protected override string GetJumpButton()
     {
-        base.PlayerCollision();
-        // Water 전용 충돌 처리
+        return "WaterJump";
     }
 }
