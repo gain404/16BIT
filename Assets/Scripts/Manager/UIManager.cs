@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     public GameObject gameOverPanel;
     public GameObject gamePausePanel;
     public GameObject gameSettingsPanel;
+    public GameObject inGamePanel;
 
     public static UIManager instance { get; private set; }
 
