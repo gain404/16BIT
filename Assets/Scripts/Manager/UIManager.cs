@@ -32,16 +32,6 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void OpenPanel(GameObject panel) // 코드 사용 예시 : UIManager.instance.OpenPanel(UIManager.instance.gameClearPanel);
-    {
-        panel.SetActive(true);
-    }
-
-    public void ClosePanel(GameObject panel) // // 코드 사용 예시 : UIManager.instance.ClosePanel(UIManager.instance.gameClearPanel);
-    {
-        panel.SetActive(false);
-    }
-
     public void ShowStarResult()
     {
         // 모든 별 초기화
