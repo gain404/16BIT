@@ -18189,6 +18189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4850eaabc24d4f439c2db98f61f08a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+
   stageClearStarPanel: {fileID: 2058386268}
   stageUnclearStarPanel: {fileID: 666400660}
   timeClearStarPanel: {fileID: 1508490076}
@@ -18198,6 +18199,7 @@ MonoBehaviour:
   gameClearPanel: {fileID: 311830154}
   gameOverPanel: {fileID: 1232102402}
   gamePausePanel: {fileID: 729993286}
+
   gameSettingsPanel: {fileID: 0}
   inGamePanel: {fileID: 697866696}
 --- !u!4 &1565995294
