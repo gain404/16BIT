@@ -43,6 +43,14 @@ public class UIManager : MonoBehaviour
 
     public void ShowStarResult()
     {
+        // 모든 별 초기화
+        stageClearStarPanel.SetActive(false);
+        stageUnclearStarPanel.SetActive(false);
+        timeClearStarPanel.SetActive(false);
+        timeUnclearStarPanel.SetActive(false);
+        zemClearStarPanel.SetActive(false);
+        zemUnclearStarPanel.SetActive(false);
+
         if (LevelManager.Instance.getClearStar)
         {
             stageClearStarPanel.SetActive(true);
