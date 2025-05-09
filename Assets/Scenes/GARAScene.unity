@@ -1151,7 +1151,7 @@ GameObject:
   - component: {fileID: 426006041}
   m_Layer: 0
   m_Name: Fire
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10649,7 +10649,7 @@ PrefabInstance:
       objectReference: {fileID: 1721423333}
     - target: {fileID: 5915426892346482421, guid: 71ae4b6f21a017b47ba91a8e70b9b1ca, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.74
+      value: -16.36
       objectReference: {fileID: 0}
     - target: {fileID: 5915426892346482421, guid: 71ae4b6f21a017b47ba91a8e70b9b1ca, type: 3}
       propertyPath: m_LocalPosition.y
@@ -19049,7 +19049,7 @@ GameObject:
   - component: {fileID: 1861251415}
   m_Layer: 0
   m_Name: Water
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -10,9 +10,27 @@ public class Lever : MonoBehaviour
     public event LiftChange OnLiftChanged;
     private GameObject[] players;
 
+    private bool isPush = false;
+
     private void Awake()
     {
         players = GameObject.FindGameObjectsWithTag("Player");
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            isPush = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            isPush = false;
+        }
     }
 
     private void Update()
@@ -24,15 +42,9 @@ public class Lever : MonoBehaviour
     //레버를 누르는 키 : e
     private void PushLever()
     {
-        for (int i = 0;  i < players.Length; i++)
+        if (Input.GetKeyDown(KeyCode.E) && isPush)
         {
-            Vector3 pos = transform.position;
-            Vector3 playerPos = players[i].transform.position;
-
-            if (Input.GetKeyDown(KeyCode.E) && Vector3.Distance(playerPos, pos) < 0.01f)
-            {
-                OnLiftChanged?.Invoke(this, true);
-            }
+            OnLiftChanged?.Invoke(this, true);
         }
     }
 

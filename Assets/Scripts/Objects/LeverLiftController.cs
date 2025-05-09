@@ -8,13 +8,13 @@ public class LeverLiftController : MonoBehaviour
 {
     //레버마다 bool값 할당
     [SerializeField] private List<Lever> levers; //인스펙터에서 레버 할당
-    public Dictionary<Lever, bool> dict;
+    private Dictionary<Lever, bool> dict;
 
     [SerializeField] private Transform liftTransform;
 
     private float liftSpeed = 5f;
     private bool isMoving;
-
+    private bool isUP = false;
     private void Start()
     {
         dict = new Dictionary<Lever, bool>();
@@ -28,15 +28,22 @@ public class LeverLiftController : MonoBehaviour
     private void LiftPressed(Lever lever, bool isPressed)
     {
         dict[lever] = isPressed;
-        isMoving = dict.Values.All(v => v);
+        isMoving = isPressed;
     }
 
     private void Update()
     {
-        Invoke("UPLift", 1f);
+        if (isUP == false)
+        {
+            UpLift();
+        }
+        else if (isUP == true)
+        {
+            DownLift();
+        }
     }
 
-    private void UPLift()
+    private void UpLift()
     {
         if (isMoving)
         {
@@ -49,7 +56,28 @@ public class LeverLiftController : MonoBehaviour
             if (Mathf.Approximately(pos.y, 3f)) //worldPos가 3f에 가까워졌으면
             {
                 isMoving = false; //움직임 멈춤
+                isUP = true;
             }
+            
+        }
+    }
+
+    private void DownLift()
+    {
+        if (isMoving)
+        {
+            liftTransform.Translate(Vector3.down * liftSpeed * Time.deltaTime);
+
+            Vector3 pos = liftTransform.localPosition;
+            pos.y = Mathf.Clamp(pos.y, -3f, 3f);
+            liftTransform.localPosition = pos;
+
+            if (Mathf.Approximately(pos.y, -3f))
+            {
+                isMoving = false;
+                isUP = false;
+            }
+            
         }
     }
 
