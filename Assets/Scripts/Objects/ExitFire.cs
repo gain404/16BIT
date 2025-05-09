@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class ExitFire : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        PlayerController player = collision.GetComponent<PlayerController>(); //PlayerController가 Instance로 싱글톤화시 수정 필요
-        if (player != null)
+        Debug.Log("OnCollisionEnter2D");
+        PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+        if (collision.gameObject.CompareTag("Player"))
         {
-            // IsExitForFirePlayer(player.playerType); // PlayerType에 Fire, Water 추가 필요
+             IsExitForFirePlayer(player.playerType); // PlayerType에 Fire, Water 추가 필요
         }
     }
 
     internal bool IsExitForFirePlayer(PlayerType playerType)  // PlayerType에 Fire, Water 추가 필요
-    {/*
+    {
         switch (playerType)
         {
             case PlayerType.Fire:
@@ -26,7 +27,6 @@ public class ExitFire : MonoBehaviour
             default:
                 Debug.LogError("발생할 수 없는 오류입니다.");
                 return false;
-        }*/
-        return false; // 임시로 false를 반환합니다. 나중에 수정 필요
+        }
     }
 }

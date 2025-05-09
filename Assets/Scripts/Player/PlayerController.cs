@@ -5,6 +5,7 @@ public abstract class PlayerController : MonoBehaviour
     public float moveSpeed = 5f;
     public float jumpForce = 7f;
     public bool isDie = false;
+    
 
     protected Rigidbody2D _rigidbody;
     protected bool isGrounded = false;
