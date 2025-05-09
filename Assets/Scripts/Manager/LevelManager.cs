@@ -28,7 +28,7 @@ public class LevelManager : MonoBehaviour
     private int TotalStarAmount = 0;
 
     // ½Ì±ÛÅæÈ­ À§ÇÑ Inatance ¼±¾ð
-    public LevelManager Instance;
+    public static LevelManager Instance;
 
     private void Awake()
     {
