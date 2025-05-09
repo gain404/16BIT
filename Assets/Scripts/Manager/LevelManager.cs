@@ -16,9 +16,9 @@ public class LevelManager : MonoBehaviour
     private float getStartime;
 
     // º° È¹µæ ¿©ºÎ
-    private bool getClearStar = false;
-    private bool getTimeStar = false;
-    private bool getZemStar = false;
+    internal bool getClearStar = false;
+    internal bool getTimeStar = false;
+    internal bool getZemStar = false;
 
     // ÇÃ·¹ÀÌ¾î°¡ È¹µæÇÑ º¸¼® °¹¼ö
     private int getZemAmount = 0;
