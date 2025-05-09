@@ -16,3 +16,12 @@ public class ObjectHandler : MonoBehaviour
         
     }
 }
+
+enum ObjectType
+{
+    Switch,
+    Lever,
+    Box,
+    Lift,
+    Teleport
+}
