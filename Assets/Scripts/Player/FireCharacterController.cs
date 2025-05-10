@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireCharacterController : MonoBehaviour
+public class FireCharacterController : PlayerController
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override string GetHorizontalAxis()
     {
-        
+        return "FireHorizontal";
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override string GetJumpButton()
     {
-        
+        Debug.Log("บา มกวม");
+        return "FireJump";
     }
 }
