@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class LeverLiftController : MonoBehaviour
 {
-    //·¹¹ö¸¶´Ù bool°ª ÇÒ´ç
-    [SerializeField] private List<Lever> levers; //ÀÎ½ºÆåÅÍ¿¡¼­ ·¹¹ö ÇÒ´ç
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ boolï¿½ï¿½ ï¿½Ò´ï¿½
+    [SerializeField] private List<Lever> levers; //ï¿½Î½ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò´ï¿½
     private Dictionary<Lever, bool> dict;
 
     [SerializeField] private Transform liftTransform;
@@ -21,7 +21,7 @@ public class LeverLiftController : MonoBehaviour
         foreach (var lever in levers)
         {
             dict[lever] = false;
-            lever.OnLiftChanged += LiftPressed; //±¸µ¶
+            lever.OnLiftChanged += LiftPressed; //ï¿½ï¿½ï¿½ï¿½
         }
     }
 
@@ -50,12 +50,12 @@ public class LeverLiftController : MonoBehaviour
             liftTransform.Translate(Vector3.up * liftSpeed * Time.deltaTime);
 
             Vector3 pos = liftTransform.localPosition;
-            pos.y = Mathf.Clamp(pos.y, pos.y, 3f); //3f¸¸Å­ ¿Ã¶ó°¡µµ·Ï Á¦ÇÑ
+            pos.y = Mathf.Clamp(pos.y, pos.y, 3f); //3fï¿½ï¿½Å­ ï¿½Ã¶ó°¡µï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             liftTransform.localPosition = pos;
 
-            if (Mathf.Approximately(pos.y, 3f)) //worldPos°¡ 3f¿¡ °¡±î¿öÁ³À¸¸é
+            if (Mathf.Approximately(pos.y, 3f)) //worldPosï¿½ï¿½ 3fï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             {
-                isMoving = false; //¿òÁ÷ÀÓ ¸ØÃã
+                isMoving = false; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
                 isUP = true;
             }
             
@@ -85,7 +85,7 @@ public class LeverLiftController : MonoBehaviour
     {
         foreach( var lever in levers)
         {
-            lever.OnLiftChanged -= LiftPressed; //±¸µ¶ ÇØÁ¦
+            lever.OnLiftChanged -= LiftPressed; //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         }
     }
 

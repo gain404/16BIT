@@ -9,24 +9,38 @@ public class Escalator : MonoBehaviour
 
     private void Awake()
     {
-        escalatorPrefabs = Resources.Load<GameObject>("Prefabs/escalator");
+        escalatorPrefabs = Resources.Load<GameObject>("Prefabs/Escalator");
+        if (escalatorPrefabs == null)
+            Debug.LogError("프리펩 로드 실패");
+        else
+            Debug.Log("로드 성공");
     }
 
-    private void Start()
+    internal void PlayEscalator()
     {
-        InvokeRepeating(nameof(PlayEscalator), 0f, 0.5f);
-    }
-
-    private void PlayEscalator()
-    {
-        //에스컬레이터 밑에 공백의 오브젝트가 생성되어 좌표 이동
-        //0.5초마다? 계속 생성되어 좌표가 이동되고
-        //좌표에 도착한 오브젝트는 1초 후에 사라지도록
         Vector3 spawnPos = new Vector3(6.12f, -5.02f);
         Vector3 arrivePos = new Vector3(8.1f, -3.2f);
-        Instantiate(escalatorPrefabs, spawnPos, Quaternion.identity);
+        GameObject obj = Instantiate(escalatorPrefabs, spawnPos, Quaternion.identity);
 
-        Vector3 elscalatorPos = Vector3.Lerp(spawnPos, arrivePos, 1f);
+        StartCoroutine(Move(obj, spawnPos,arrivePos, 1f));
     }
 
+    //이동하고 1초 이후 파괴
+    private IEnumerator Move(GameObject obj, Vector3 from, Vector3 to, float duration)
+    {
+        float elapsed = 0f;
+
+        while(elapsed < duration) //이동하는 동안
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / duration);
+            obj.transform.position = Vector3.Lerp(from, to, t);
+            yield return null; //이동하는 동안은 return null
+        }
+
+        //도착 후 1초 대기 & 파괴
+        yield return new WaitForSecondsRealtime(0.5f);
+        Debug.Log("도착!");
+        Destroy(obj);
+    }
 }

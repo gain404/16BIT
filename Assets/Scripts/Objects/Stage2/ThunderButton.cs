@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class ThunderButton : MonoBehaviour
 {
-    
+    private Escalator escalator;
+
+    private void Awake()
+    {
+        escalator = FindObjectOfType<Escalator>();
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision == null)
@@ -15,8 +21,16 @@ public class ThunderButton : MonoBehaviour
             if (pt.playerType == PlayerType.Thunder)
             {
                 Debug.Log("thunder타입 플레이어와 충돌");
-                //여기에 에스컬레이터 움직이는 로직 추가
+                InvokeRepeating(nameof(Escalator.PlayEscalator), 0f, 2f);
             }
         }
     }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision == null) return;
+
+        CancelInvoke(nameof(Escalator.PlayEscalator));
+    }
+
 }
