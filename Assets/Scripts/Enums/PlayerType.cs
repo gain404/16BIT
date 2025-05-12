@@ -1,5 +1,9 @@
 public enum PlayerType
 {
     Fire,
-    Water
+    Water,
+    Thunder,
+    Soil,
+    Iron,
+    Light
 }
