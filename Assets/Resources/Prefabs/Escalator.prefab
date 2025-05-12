@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6519715608932382424}
   - component: {fileID: 6973287352427236746}
-  - component: {fileID: 2964937857948319119}
   m_Layer: 0
   m_Name: Escalator
   m_TagString: Untagged
@@ -85,15 +84,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2964937857948319119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1074271111419674772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25a8f578556e2f346bc17450cec97807, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
