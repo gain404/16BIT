@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class Fireball : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        PlayerController player = GetComponent<PlayerController>();
+        if (player != null && player.playerType == PlayerType.Water)
+        {
+            Debug.Log("Damaged");
+        }
     }
 }
