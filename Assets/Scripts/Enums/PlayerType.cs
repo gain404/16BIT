@@ -1,18 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class PlayerType : MonoBehaviour
+public enum PlayerType
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    Fire,
+    Water,
+    Thunder,
+    Soil,
+    Iron,
+    Light
 }

@@ -6,38 +6,78 @@ using UnityEngine;
 
 public class LeverLiftController : MonoBehaviour
 {
-    //·¹¹ö¸¶´Ù bool°ª ÇÒ´ç
-    [SerializeField] private List<Lever> levers; //·¹¹ö ÇÒ´ç
-    public Dictionary<Lever, bool> dict;
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ boolï¿½ï¿½ ï¿½Ò´ï¿½
+    [SerializeField] private List<Lever> levers; //ï¿½Î½ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò´ï¿½
+    private Dictionary<Lever, bool> dict;
 
     [SerializeField] private Transform liftTransform;
 
-    private float liftSpeed = 1f;
+    private float liftSpeed = 5f;
     private bool isMoving;
-
+    private bool isUP = false;
     private void Start()
     {
         dict = new Dictionary<Lever, bool>();
         foreach (var lever in levers)
         {
             dict[lever] = false;
-            lever.OnLiftChanged += LiftPressed; //±¸µ¶
+            lever.OnLiftChanged += LiftPressed; //ï¿½ï¿½ï¿½ï¿½
         }
     }
 
     private void LiftPressed(Lever lever, bool isPressed)
     {
         dict[lever] = isPressed;
-        isMoving = dict.Values.All(v => v);
+        isMoving = isPressed;
     }
 
     private void Update()
     {
+        if (isUP == false)
+        {
+            UpLift();
+        }
+        else if (isUP == true)
+        {
+            DownLift();
+        }
+    }
+
+    private void UpLift()
+    {
         if (isMoving)
         {
             liftTransform.Translate(Vector3.up * liftSpeed * Time.deltaTime);
-            Vector3 localLift = liftTransform.localPosition;
-            localLift.y = Mathf.Clamp(localLift.y, 0f, 3f); //3f¸¸Å­ ¿Ã¶ó°¡µµ·Ï Á¦ÇÑ
+
+            Vector3 pos = liftTransform.localPosition;
+            pos.y = Mathf.Clamp(pos.y, pos.y, 3f); //3fï¿½ï¿½Å­ ï¿½Ã¶ó°¡µï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+            liftTransform.localPosition = pos;
+
+            if (Mathf.Approximately(pos.y, 3f)) //worldPosï¿½ï¿½ 3fï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            {
+                isMoving = false; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+                isUP = true;
+            }
+            
+        }
+    }
+
+    private void DownLift()
+    {
+        if (isMoving)
+        {
+            liftTransform.Translate(Vector3.down * liftSpeed * Time.deltaTime);
+
+            Vector3 pos = liftTransform.localPosition;
+            pos.y = Mathf.Clamp(pos.y, -3f, 3f);
+            liftTransform.localPosition = pos;
+
+            if (Mathf.Approximately(pos.y, -3f))
+            {
+                isMoving = false;
+                isUP = false;
+            }
+            
         }
     }
 
@@ -45,7 +85,7 @@ public class LeverLiftController : MonoBehaviour
     {
         foreach( var lever in levers)
         {
-            lever.OnLiftChanged -= LiftPressed; //±¸µ¶ ÇØÁ¦
+            lever.OnLiftChanged -= LiftPressed; //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         }
     }
 

@@ -1,18 +1,72 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public abstract class PlayerController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float moveSpeed = 5f;
+    public float jumpForce = 7f;
+    public bool isDie = false;
+
+    private SpriteRenderer spriteRenderer;
+
+    protected Rigidbody2D _rigidbody;
+    protected bool isGrounded = false;
+
+    public PlayerType playerType;
+
+    protected virtual void Awake()
     {
-        
+        _rigidbody = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
-    // Update is called once per frame
-    void Update()
+    //get the input keys from InputManager
+    protected abstract string GetHorizontalAxis();
+    protected abstract string GetJumpButton();
+    protected virtual void Update()
     {
-        
+        float horizontal = Input.GetAxisRaw(GetHorizontalAxis());
+
+        Move(horizontal);
+
+        if (isGrounded && Input.GetButtonDown(GetJumpButton()))
+        {
+            Jump();
+        }
+
+        //flip sprites based on the input keys
+        if (Input.GetAxisRaw(GetHorizontalAxis()) > 0)
+        {
+            this.spriteRenderer.flipX = false;  // flip to right
+        }
+        else if (Input.GetAxisRaw(GetHorizontalAxis()) < 0)
+        {
+            this.spriteRenderer.flipX = true;   // flip to left
+        }
+    }
+
+    public virtual void Move(float horizontal)
+    {
+        _rigidbody.velocity = new Vector2(horizontal * moveSpeed, _rigidbody.velocity.y);
+    }
+
+    public virtual void Jump()
+    {
+        _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse); 
+    }
+
+    //checking jumpable conditions
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
+    }
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = false;
+        }
     }
 }

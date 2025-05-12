@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     private bool isGameOver = false;
     private bool isPaused = false;
 
+    public bool teleportEnable = true;
+
     void Awake()
     {
         //싱글톤
