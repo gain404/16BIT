@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fire: {fileID: 7414000585454015804, guid: 5e9bbaf827af88743a3ba53b75e83de9, type: 3}
-  launchForce: 10
-  launchInterval: 2
+  launchForce: 15
+  launchInterval: 4
 --- !u!1001 &4413739500031890260
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -6,9 +6,9 @@ public class FireSpawner : MonoBehaviour
 {
     public GameObject fire;
     //발사 힘
-    public float launchForce = 10f;
+    public float launchForce = 30f;
     //발사 간격
-    public int launchInterval = 2;
+    public int launchInterval = 4;
     private void Start()
     {
         StartCoroutine(SpawnFire());

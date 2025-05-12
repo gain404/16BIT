@@ -14,7 +14,7 @@ public class Fireball : MonoBehaviour
     private void Update()
     {
         //일정 이하로 내려가면 삭제
-        if(this.gameObject.transform.position.y < -10)
+        if(this.gameObject.transform.position.y < -20)
         {
             Destroy(this.gameObject);
         }
