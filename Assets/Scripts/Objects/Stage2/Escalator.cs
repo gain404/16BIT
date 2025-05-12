@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Escalator : MonoBehaviour
 {
-
     private GameObject escalatorPrefabs;
 
     private void Awake()
