@@ -5,24 +5,25 @@ public abstract class PlayerController : MonoBehaviour
     public float moveSpeed = 5f;
     public float jumpForce = 7f;
     public bool isDie = false;
-    
+
+    private SpriteRenderer spriteRenderer;
 
     protected Rigidbody2D _rigidbody;
     protected bool isGrounded = false;
 
-    public PlayerType playerType; //플레이어 타입
+    public PlayerType playerType;
 
     protected virtual void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
-    //InputManager에서 키 설정 후 가져옴
+    //get the input keys from InputManager
     protected abstract string GetHorizontalAxis();
     protected abstract string GetJumpButton();
     protected virtual void Update()
     {
-        //키 할당
         float horizontal = Input.GetAxisRaw(GetHorizontalAxis());
 
         Move(horizontal);
@@ -30,6 +31,16 @@ public abstract class PlayerController : MonoBehaviour
         if (isGrounded && Input.GetButtonDown(GetJumpButton()))
         {
             Jump();
+        }
+
+        //flip sprites based on the input keys
+        if (Input.GetAxisRaw(GetHorizontalAxis()) > 0)
+        {
+            this.spriteRenderer.flipX = false;  // flip to right
+        }
+        else if (Input.GetAxisRaw(GetHorizontalAxis()) < 0)
+        {
+            this.spriteRenderer.flipX = true;   // flip to left
         }
     }
 
@@ -42,18 +53,17 @@ public abstract class PlayerController : MonoBehaviour
     {
         _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse); 
     }
+
+    //checking jumpable conditions
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // 땅과 충돌했을 때, isGrounded를 true로 설정
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
         }
     }
-
     void OnCollisionExit2D(Collision2D collision)
     {
-        // 땅과 떨어졌을 때, isGrounded를 false로 설정
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;

@@ -11,7 +11,6 @@ public class FireCharacterController : PlayerController
 
     protected override string GetJumpButton()
     {
-        Debug.Log("บา มกวม");
         return "FireJump";
     }
 }
