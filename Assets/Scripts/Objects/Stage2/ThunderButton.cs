@@ -25,4 +25,12 @@ public class ThunderButton : MonoBehaviour
             }
         }
     }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision == null) return;
+
+        CancelInvoke(nameof(Escalator.PlayEscalator));
+    }
+
 }

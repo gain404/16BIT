@@ -16,11 +16,6 @@ public class Escalator : MonoBehaviour
             Debug.Log("로드 성공");
     }
 
-    private void Start()
-    {
-        
-    }
-
     internal void PlayEscalator()
     {
         Vector3 spawnPos = new Vector3(6.12f, -5.02f);
