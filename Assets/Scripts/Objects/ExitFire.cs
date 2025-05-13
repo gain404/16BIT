@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class ExitFire : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("OnCollisionEnter2D");
+        Debug.Log("OnTriggerEnter2D");
         PlayerController player = collision.gameObject.GetComponent<PlayerController>();
         if (collision.gameObject.CompareTag("Player"))
         {
-             IsExitForFirePlayer(player.playerType); // PlayerType에 Fire, Water 추가 필요
+            IsExitForFirePlayer(player.playerType);
         }
     }
 

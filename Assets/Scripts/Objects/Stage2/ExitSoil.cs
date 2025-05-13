@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExitWater : MonoBehaviour
+public class ExitSoil : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -14,15 +14,15 @@ public class ExitWater : MonoBehaviour
         }
     }
 
-    internal bool IsExitForFirePlayer(PlayerType playerType)  // PlayerType에 Fire, Water 추가 필요
+    internal bool IsExitForFirePlayer(PlayerType playerType)
     {
         switch (playerType)
         {
-            case PlayerType.Fire:
-                Debug.Log("불꽃 캐릭터는 물 탈출로로 탈출할 수 없습니다.");
+            case PlayerType.Soil:
+                Debug.Log("흙냥이 집으로 안착!");
                 return true;
-            case PlayerType.Water:
-                Debug.Log("물 캐릭터 탈출");
+            case PlayerType.Thunder:
+                Debug.Log("전기냥이는 흙냥이 집으로 들어올 수 없습니다.");
                 return false;
             default:
                 Debug.LogError("발생할 수 없는 오류입니다.");
