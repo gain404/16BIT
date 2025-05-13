@@ -45,8 +45,8 @@ public abstract class PlayerController : MonoBehaviour
         }
 
         float speed = _rigidbody.velocity.magnitude;
-        animator.SetFloat("run", speed);
-        animator.SetBool("isJumping", !isGrounded);
+      //  animator.SetFloat("run", speed);
+      //  animator.SetBool("isJumping", !isGrounded);
     }
 
     public virtual void Move(float horizontal)
