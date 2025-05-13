@@ -6,11 +6,11 @@ public class IronCharacterController : PlayerController
 {
     protected override string GetHorizontalAxis()
     {
-        return "FireHorizontal";
+        return "WaterHorizontal";
     }
 
     protected override string GetJumpButton()
     {
-        return "FireJump";
+        return "WaterJump";
     }
 }

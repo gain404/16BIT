@@ -6,12 +6,12 @@ public class LightCharacterController : PlayerController
 {
     protected override string GetHorizontalAxis()
     {
-        return "WaterHorizontal";
+        return "FireHorizontal";
     }
 
     protected override string GetJumpButton()
     {
-        return "WaterJump";
+        return "FireJump";
     }
 
     public override void Jump()

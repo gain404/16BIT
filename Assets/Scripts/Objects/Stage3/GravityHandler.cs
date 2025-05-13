@@ -10,6 +10,8 @@ public class GravityHandler : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
 
+    [SerializeField] private float jumpScale;
+
     public static GravityHandler instance { get; private set; }
 
     private void Awake()
@@ -29,12 +31,23 @@ public class GravityHandler : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        rb.gravityScale = 0f;
+       // rb.gravityScale = 0f;
     }
 
     void FixedUpdate()
     {
-        Vector2 direction = gravityReversed ? Vector2.up : Vector2.down;
+        Vector2 direction;
+
+        if (gravityReversed)
+        {
+            direction = Vector2.up;
+            rb.gravityScale = -jumpScale;
+        }
+        else
+        {
+            direction = Vector2.down;
+            rb.gravityScale = jumpScale;
+        }
         rb.AddForce(direction * reverseGravity, ForceMode2D.Force);
     }
 
