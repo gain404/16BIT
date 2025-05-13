@@ -38,7 +38,7 @@ public class GravityLever : MonoBehaviour
     //레버를 누르는 키 : e
     private void PushGravityLever()
     {
-        Debug.Log("isPush : " + isPush);
+       // Debug.Log("isPush : " + isPush);
         if (Input.GetKeyDown(KeyCode.E) && isPush)
         {
             Debug.Log("isPush2 : " + isPush);
