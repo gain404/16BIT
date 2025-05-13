@@ -7927,6 +7927,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Switch (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6648253927305783566, guid: f554d28af95f8e949b2859746a320174, type: 3}
+      propertyPath: m_Color.b
+      value: 0.96314764
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648253927305783566, guid: f554d28af95f8e949b2859746a320174, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648253927305783566, guid: f554d28af95f8e949b2859746a320174, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7889840562734102256, guid: f554d28af95f8e949b2859746a320174, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.7
@@ -24852,6 +24864,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: 0, y: 0, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 13
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: 1, y: 0, z: 0}
     second:
       serializedVersion: 2
@@ -26160,15 +26182,15 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 228
+  - m_RefCount: 229
     m_Data: {fileID: 11400000, guid: 752bd7ace7ec5c942ac22779fd2ef72f, type: 2}
   - m_RefCount: 30
     m_Data: {fileID: 11400000, guid: 800afecaef01cdf46af1c533d1f5438b, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 228
+  - m_RefCount: 229
     m_Data: {fileID: 21300000, guid: 4d3f28444dac62e4283369320ecb7424, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 258
+  - m_RefCount: 259
     m_Data:
       e00: 1
       e01: 0
@@ -26187,7 +26209,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 258
+  - m_RefCount: 259
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -26559,6 +26581,18 @@ PrefabInstance:
     - target: {fileID: 251621084058877921, guid: f554d28af95f8e949b2859746a320174, type: 3}
       propertyPath: m_Name
       value: Switch
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648253927305783566, guid: f554d28af95f8e949b2859746a320174, type: 3}
+      propertyPath: m_Color.b
+      value: 0.96314764
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648253927305783566, guid: f554d28af95f8e949b2859746a320174, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648253927305783566, guid: f554d28af95f8e949b2859746a320174, type: 3}
+      propertyPath: m_Color.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7889840562734102256, guid: f554d28af95f8e949b2859746a320174, type: 3}
       propertyPath: m_LocalScale.x
@@ -26939,6 +26973,18 @@ PrefabInstance:
     - target: {fileID: 251621084058877921, guid: f554d28af95f8e949b2859746a320174, type: 3}
       propertyPath: m_Name
       value: Switch (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648253927305783566, guid: f554d28af95f8e949b2859746a320174, type: 3}
+      propertyPath: m_Color.b
+      value: 0.96314764
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648253927305783566, guid: f554d28af95f8e949b2859746a320174, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648253927305783566, guid: f554d28af95f8e949b2859746a320174, type: 3}
+      propertyPath: m_Color.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7889840562734102256, guid: f554d28af95f8e949b2859746a320174, type: 3}
       propertyPath: m_LocalScale.x
