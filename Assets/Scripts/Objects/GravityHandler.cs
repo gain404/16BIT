@@ -29,7 +29,7 @@ public class GravityHandler : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        rb.gravityScale = 0f;
+       // rb.gravityScale = 0f;
     }
 
     void FixedUpdate()
