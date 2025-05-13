@@ -5,7 +5,9 @@ public abstract class PlayerController : MonoBehaviour
     public float moveSpeed = 5f;
     public float jumpForce = 7f;
     public bool isDie = false;
-    protected bool isGrounded = false;
+    public Vector2 groundCheck;       // 발 위치
+    public float castDistance = 0.1f;  // 레이 거리
+    public LayerMask groundLayer;
 
     protected SpriteRenderer spriteRenderer;
     protected Rigidbody2D _rigidbody;
@@ -28,8 +30,9 @@ public abstract class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxisRaw(GetHorizontalAxis());
 
         Move(horizontal);
+        
 
-        if (isGrounded && Input.GetButtonDown(GetJumpButton()))
+        if (isGrounded() && Input.GetButtonDown(GetJumpButton()))
         {
             Jump();
         }
@@ -44,12 +47,13 @@ public abstract class PlayerController : MonoBehaviour
             this.spriteRenderer.flipX = true;   // flip to left
         }
 
+
         bool isMoving = Mathf.Abs(horizontal) > 0.1f;
         float speed = _rigidbody.velocity.magnitude;
 
         animator.SetFloat("run", speed);
-        animator.SetBool("isJumping", !isGrounded);
-        animator.SetBool("isRunning", isMoving);
+        animator.SetBool("isJumping", !isGrounded());
+        //animator.SetBool("isRunning", isMoving);
     }
 
     public virtual void Move(float horizontal)
@@ -62,19 +66,32 @@ public abstract class PlayerController : MonoBehaviour
         _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse); 
     }
 
+    private bool isGrounded()
+    {
+        if(Physics2D.BoxCast(transform.position, groundCheck, 0, -transform.up, castDistance, groundLayer))
+        {
+            return true;
+        }
+        else { return false; }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(transform.position-transform.up * castDistance, groundCheck);
+    }
     //checking jumpable conditions
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = true;
-        }
-    }
-    void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = false;
-        }
-    }
+    //void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Ground"))
+    //    {
+    //        isGrounded = true;
+    //    }
+    //}
+    //void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Ground"))
+    //    {
+    //        isGrounded = false;
+    //    }
+    //}
 }

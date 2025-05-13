@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class Zem : MonoBehaviour
 {
-    void OnCollisionEnter2D(Collision2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("º¸¼® È¹µæ");
-            LevelManager.Instance.getZemAmount++;
-            Debug.Log("º¸¼® °¹¼ö: " + LevelManager.Instance.getZemAmount);
-            Destroy(gameObject);
+            //LevelManager.Instance.getZemAmount++;
+            //Debug.Log("Á¡¼ö: " + LevelManager.Instance.getZemAmount);
+            Destroy(this.gameObject);
         }
     }
 }
