@@ -14,7 +14,8 @@ public class ObstacleHandler : MonoBehaviour
         {
             if (IsDangerForPlayer(player.playerType)) //PlayerController에서 public PlayerType playerType형식으로 지정 필요
             {
-                Destroy(player.gameObject); // 위험하면 파괴
+                GameManager.instance.GameOver();
+               // Destroy(player.gameObject); // 위험하면 파괴
             }
         }
     }
@@ -32,6 +33,10 @@ public class ObstacleHandler : MonoBehaviour
             case ObstacleType.PoisonPuddle:
                 Debug.Log(playerType);
                 return true; //독 타일은 얄짤없이 플레이어 Destroy처리
+            case ObstacleType.Thorn:
+                Debug.Log("가시에 닿았습니다.");
+                return true;
+
             default:
                 Debug.LogError("뭐야 이거 어떻게 닿았어");
                 return false;
@@ -43,6 +48,7 @@ enum ObstacleType
 {
     FirePuddle,
     WaterPuddle,
-    PoisonPuddle
+    PoisonPuddle,
+    Thorn
 }
 

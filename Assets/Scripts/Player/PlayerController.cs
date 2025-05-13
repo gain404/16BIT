@@ -5,11 +5,11 @@ public abstract class PlayerController : MonoBehaviour
     public float moveSpeed = 5f;
     public float jumpForce = 7f;
     public bool isDie = false;
-
-    private SpriteRenderer spriteRenderer;
-
-    protected Rigidbody2D _rigidbody;
     protected bool isGrounded = false;
+
+    protected SpriteRenderer spriteRenderer;
+    protected Rigidbody2D _rigidbody;
+    protected Animator animator;
 
     public PlayerType playerType;
 
@@ -17,6 +17,7 @@ public abstract class PlayerController : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     //get the input keys from InputManager
@@ -42,6 +43,13 @@ public abstract class PlayerController : MonoBehaviour
         {
             this.spriteRenderer.flipX = true;   // flip to left
         }
+
+        bool isMoving = Mathf.Abs(horizontal) > 0.1f;
+        float speed = _rigidbody.velocity.magnitude;
+
+        animator.SetFloat("run", speed);
+        animator.SetBool("isJumping", !isGrounded);
+        animator.SetBool("isRunning", isMoving);
     }
 
     public virtual void Move(float horizontal)
