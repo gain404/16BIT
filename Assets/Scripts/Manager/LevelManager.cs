@@ -13,8 +13,8 @@ public class LevelManager : MonoBehaviour
     PlayerController playerController;
 
     // 게임 진행 시간 및 시간 관련 별 획득 여부
-    private float gameTime;
-    private float getStartime;
+    public float gameTime;
+    public float getStartime;
 
     // 별 획득 여부
     internal bool getClearStar = false;
@@ -22,8 +22,8 @@ public class LevelManager : MonoBehaviour
     internal bool getZemStar = false;
 
     // 플레이어가 획득한 보석 갯수
-    internal int getZemAmount = 0;
-    internal int zemAmountMax = 5; // 최대 보석 갯수
+    public int getZemAmount = 0;
+    public int zemAmountMax; // 최대 보석 갯수
 
     // 총 획득 별 갯수
     private int TotalStarAmount = 0;
@@ -56,7 +56,6 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         onGameStarted = true;
-        OnGameFinished();
     }
 
     private void Update()
@@ -71,16 +70,14 @@ public class LevelManager : MonoBehaviour
         {
             gameTime += Time.deltaTime;
         }
-
-        if (gameTime <= getStartime)
-        {
-            getTimeStar = true;
-        }
     }
 
-    private void OnGameFinished()
+    internal void OnGameFinished()
     {
         Stage currentStage = GetCurrentStage();
+
+        if (gameTime <= getStartime) getTimeStar = true;
+        if (getZemAmount == zemAmountMax) getZemStar = true;
 
         switch (currentStage)
         {
@@ -100,6 +97,7 @@ public class LevelManager : MonoBehaviour
                 break;
         }
 
+        getClearStar = true;
         onGameFinished = true;
         onGameStarted = false;
 
@@ -107,6 +105,9 @@ public class LevelManager : MonoBehaviour
         if (getTimeStar) TotalStarAmount++;
         if (getZemStar) TotalStarAmount++;
 
+        Debug.Log("스타(클리어): " + getClearStar);
+        Debug.Log("스타(시간): " + getTimeStar);
+        Debug.Log("스타(보석): " + getZemStar);
         Debug.Log("총 획득 별 갯수: " + TotalStarAmount);
 
         GetTotalStarAmount(currentStage); // 스테이지별 최고 점수 갱신
@@ -121,8 +122,6 @@ public class LevelManager : MonoBehaviour
         {
             SetHighTotalStar(stage);
         }
-
-
         return TotalStarAmount;
     }
     private void SetHighTotalStar(Stage stage)

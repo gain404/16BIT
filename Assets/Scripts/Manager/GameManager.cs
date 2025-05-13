@@ -7,11 +7,12 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance { get; private set; }
 
-    private int playersAtExit = 0;
+    internal int playersAtExit = 0;
     private int totalPlayers = 2;
 
     private bool isGameOver = false;
     private bool isPaused = false;
+    public bool isGameClear = false;
 
     public bool teleportEnable = true;
 
@@ -39,6 +40,8 @@ public class GameManager : MonoBehaviour
             else
                 PauseGame();
         }
+
+        CheckGameClear();
     }
     public void PauseGame()
     {
@@ -84,7 +87,6 @@ public class GameManager : MonoBehaviour
             UIManager.instance.gameOverPanel.SetActive(true);
         }
     }
-
     public void GameClear()
     {
         //도착한 플레이어가 두 명 이상일 시
@@ -95,6 +97,20 @@ public class GameManager : MonoBehaviour
             isGameOver = true;
             UIManager.instance.gameClearPanel.SetActive(true);
             //LevelManager.Instance.levelClearUI.SetActive(true);
+        }
+    }
+
+    public void CheckGameClear()
+    {
+        if (playersAtExit >= totalPlayers && !isGameOver)
+        {
+            //레벨 클리어
+            isGameOver = true;
+            UIManager.instance.gameClearPanel.SetActive(true);
+            Debug.Log("게임 클리어");
+            LevelManager.Instance.OnGameFinished();
+            // LevelManager.Instance.levelClearUI.SetActive(true);
+            isGameClear = false;
         }
     }
 }
