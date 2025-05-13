@@ -13,9 +13,7 @@ public class Laser : MonoBehaviour
 
     protected void OnTriggerEnter2D(Collider2D other)
     {
-        Vector3 currentScale = transform.localScale;
-        currentScale += player.transform.localScale;
-        transform.localScale = currentScale;
+        transform.localScale += player.transform.localScale;
     }
 
     protected void ChangeLaserLength()
