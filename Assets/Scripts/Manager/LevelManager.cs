@@ -121,9 +121,21 @@ public class LevelManager : MonoBehaviour
         onGameFinished = true;
         onGameStarted = false;
 
-        if (getClearStar) TotalStarAmount++;
-        if (getTimeStar) TotalStarAmount++;
-        if (getZemStar) TotalStarAmount++;
+        if (getClearStar)
+        {
+            TotalStarAmount++;
+        }
+        if (getTimeStar)
+        {
+            TotalStarAmount++;
+            UIManager.instance.timeClearStarPanel.SetActive(false);
+
+        }
+        if (getZemStar)
+        {
+            TotalStarAmount++;
+            UIManager.instance.zemClearStarPanel.SetActive(false);
+        }
 
         Debug.Log("스타(클리어): " + getClearStar);
         Debug.Log("스타(시간): " + getTimeStar);
