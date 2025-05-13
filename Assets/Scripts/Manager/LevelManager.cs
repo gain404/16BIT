@@ -21,8 +21,8 @@ public class LevelManager : MonoBehaviour
     internal bool getZemStar = false;
 
     // ÇÃ·¹ÀÌ¾î°¡ È¹µæÇÑ º¸¼® °¹¼ö
-    private int getZemAmount = 0;
-    private int zemAmountMax = 5; // ÃÖ´ë º¸¼® °¹¼ö
+    internal int getZemAmount = 0;
+    internal int zemAmountMax = 5; // ÃÖ´ë º¸¼® °¹¼ö
 
     // ÃÑ È¹µæ º° °¹¼ö
     private int TotalStarAmount = 0;

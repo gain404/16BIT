@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4121249231045215891}
   - component: {fileID: 2173296389514338811}
   - component: {fileID: 996073555149878633}
-  - component: {fileID: 3345609987129850177}
+  - component: {fileID: 7477785191756595326}
   m_Layer: 0
   m_Name: Lever
   m_TagString: Untagged
@@ -27,9 +27,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6569425632490063907}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.728417, y: 1.682, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -130,14 +130,16 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 0.5}
-      - {x: -0.5, y: 0.5}
-      - {x: -0.5, y: -0.5}
-      - {x: 0.4375, y: -0.5}
-      - {x: 0.5, y: -0.4375}
-      - {x: 0.5, y: -0.1875}
+    - - {x: 0.20654976, y: -0.17610087}
+      - {x: -0.17469324, y: -0.18307522}
+      - {x: -0.3889117, y: -0.30412033}
+      - {x: -0.39309227, y: -0.4453839}
+      - {x: 0.004011154, y: -0.44538254}
+      - {x: 0.3904746, y: -0.44323894}
+      - {x: 0.3853152, y: -0.31356266}
+      - {x: 0.3683586, y: -0.2717514}
   m_UseDelaunayMesh: 0
---- !u!114 &3345609987129850177
+--- !u!114 &7477785191756595326
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
