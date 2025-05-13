@@ -49,7 +49,7 @@ public abstract class PlayerController : MonoBehaviour
 
         animator.SetFloat("run", speed);
         animator.SetBool("isJumping", !isGrounded);
-        animator.SetBool("isRunning", isMoving);
+        //animator.SetBool("isRunning", isMoving);
     }
 
     public virtual void Move(float horizontal)
