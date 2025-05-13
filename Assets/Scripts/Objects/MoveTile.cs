@@ -6,11 +6,11 @@ using UnityEngine;
 public class MoveTile : MonoBehaviour
 {
 
-    private float leftLimit;
-    private float rightLimit;
+    [SerializeField] private float leftLimit;
+    [SerializeField] private float rightLimit;
 
-    [SerializeField] private float leftBind;
-    [SerializeField] private float rightBind;
+     private float leftBind;
+     private float rightBind;
     [SerializeField] private float waitTime;
 
     private int direction = -1; // -1 = 왼쪽, 1 = 오른쪽
@@ -27,14 +27,13 @@ public class MoveTile : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         rb.gravityScale = 0f;
-        float posX = liftTransform.localPosition.x;
-        leftLimit = posX - leftBind;
-        rightLimit = posX + rightBind;
+
+        // 현재 위치 기준으로 좌우 제한 설정
+        float startX = liftTransform.position.x;
+        leftLimit = startX - Mathf.Abs(leftBind);
+        rightLimit = startX + Mathf.Abs(rightBind);
     }
-    
 
     private void MoveLift()
     {
@@ -42,7 +41,7 @@ public class MoveTile : MonoBehaviour
 
         liftTransform.Translate(Vector3.right * direction * liftSpeed * Time.deltaTime);
 
-        float posX = liftTransform.localPosition.x;
+        float posX = liftTransform.position.x;
         if (posX <= leftLimit)
         {
             direction = 0;

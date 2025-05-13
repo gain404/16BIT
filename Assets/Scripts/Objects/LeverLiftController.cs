@@ -56,7 +56,7 @@ public class LeverLiftController : MonoBehaviour
             pos.y = Mathf.Clamp(pos.y, pos.y, liftUpMove); //3f��ŭ �ö󰡵��� ����
             liftTransform.localPosition = pos;
 
-            if (Mathf.Approximately(pos.y, 3f)) //worldPos�� 3f�� �����������
+            if (Mathf.Approximately(pos.y, liftUpMove)) //worldPos�� 3f�� �����������
             {
                 isMoving = false; //������ ����
                 isUP = true;
@@ -75,7 +75,7 @@ public class LeverLiftController : MonoBehaviour
             pos.y = Mathf.Clamp(pos.y, liftDownMove, liftUpMove);
             liftTransform.localPosition = pos;
 
-            if (Mathf.Approximately(pos.y, -3f))
+            if (Mathf.Approximately(pos.y, liftDownMove))
             {
                 isMoving = false;
                 isUP = false;
