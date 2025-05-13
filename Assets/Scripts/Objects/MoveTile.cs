@@ -56,6 +56,24 @@ public class MoveTile : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            // 플레이어를 이 리프트의 자식으로 설정 (같이 움직이게)
+            collision.transform.SetParent(this.liftTransform);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            // 부모 관계 해제 (리프트에서 내려왔을 때)
+            collision.transform.SetParent(null);
+        }
+    }
+
     void WaitAtLeft()
     {
         direction = 1;
