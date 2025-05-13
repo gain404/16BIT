@@ -12,10 +12,10 @@ public class ObstacleHandler : MonoBehaviour
         PlayerController player = collision.gameObject.GetComponent<PlayerController>();
         if (player != null)
         {
-            if (IsDangerForPlayer(player.playerType)) //PlayerController¿¡¼­ public PlayerType playerTypeÇü½ÄÀ¸·Î ÁöÁ¤ ÇÊ¿ä
+            if (IsDangerForPlayer(player.playerType)) //PlayerControllerï¿½ï¿½ï¿½ï¿½ public PlayerType playerTypeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½
             {
                 GameManager.instance.GameOver();
-               // Destroy(player.gameObject); // À§ÇèÇÏ¸é ÆÄ±«
+               // Destroy(player.gameObject); // ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½Ä±ï¿½
             }
         }
     }
@@ -26,19 +26,19 @@ public class ObstacleHandler : MonoBehaviour
         {
             case ObstacleType.FirePuddle:
                 Debug.Log(playerType);
-                return playerType != PlayerType.Fire; //°°Àº Å¸ÀÔÀÌ ¾Æ´Ï¸é ÇÃ·¹ÀÌ¾î DestroyÃ³¸®
+                return playerType != PlayerType.Fire; //ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï¸ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ DestroyÃ³ï¿½ï¿½
             case ObstacleType.WaterPuddle:
                 Debug.Log(playerType);
                 return playerType != PlayerType.Water;
             case ObstacleType.PoisonPuddle:
                 Debug.Log(playerType);
-                return true; //µ¶ Å¸ÀÏÀº ¾âÂ©¾øÀÌ ÇÃ·¹ÀÌ¾î DestroyÃ³¸®
+                return true; //ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Â©ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ DestroyÃ³ï¿½ï¿½
             case ObstacleType.Thorn:
-                Debug.Log("°¡½Ã¿¡ ´ê¾Ò½À´Ï´Ù.");
+                Debug.Log("ï¿½ï¿½ï¿½Ã¿ï¿½ ï¿½ï¿½Ò½ï¿½ï¿½Ï´ï¿½.");
                 return true;
 
             default:
-                Debug.LogError("¹¹¾ß ÀÌ°Å ¾î¶»°Ô ´ê¾Ò¾î");
+                Debug.LogError("ï¿½ï¿½ï¿½ï¿½ ï¿½Ì°ï¿½ ï¿½î¶»ï¿½ï¿½ ï¿½ï¿½Ò¾ï¿½");
                 return false;
         }
     }
