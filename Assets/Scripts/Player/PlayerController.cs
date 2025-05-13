@@ -44,9 +44,12 @@ public abstract class PlayerController : MonoBehaviour
             this.spriteRenderer.flipX = true;   // flip to left
         }
 
+        bool isMoving = Mathf.Abs(horizontal) > 0.1f;
         float speed = _rigidbody.velocity.magnitude;
-      //  animator.SetFloat("run", speed);
-      //  animator.SetBool("isJumping", !isGrounded);
+
+        animator.SetFloat("run", speed);
+        animator.SetBool("isJumping", !isGrounded);
+        animator.SetBool("isRunning", isMoving);
     }
 
     public virtual void Move(float horizontal)
