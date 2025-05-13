@@ -11,8 +11,8 @@ public class StageSelectUI : MonoBehaviour
     [Header("¹öÆ°")]
     [SerializeField] private Button nextButton;
     [SerializeField] private Button prevButton;
+    [SerializeField] private Button SceneChangeButton;
 
-    [SerializeField] private Button ScenChangeButton;
 
     private int currentStageIndex = 0;
 

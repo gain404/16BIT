@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-public class IntoGameBtn : MonoBehaviour
+public class IntoStage1 : MonoBehaviour
 {
     [SerializeField] private Button SceneChangeButton;
 
@@ -17,6 +16,6 @@ public class IntoGameBtn : MonoBehaviour
         }
 
         Debug.Log("StageSelectScene으로 전환을 시도합니다.");
-        GARALoadSceneManager.Instance.LoadScene(SceneType.StageSelectScene);
+        GARALoadSceneManager.Instance.LoadScene(SceneType.Stage1);
     }
 }
