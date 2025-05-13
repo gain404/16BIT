@@ -8,7 +8,6 @@ public class MoveTile : MonoBehaviour
 
     private float leftLimit;
     private float rightLimit;
-    private bool liftMovement = true;
 
     [SerializeField] private float leftBind;
     [SerializeField] private float rightBind;
