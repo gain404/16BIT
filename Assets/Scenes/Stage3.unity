@@ -20760,7 +20760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reverseGravity: 9.81
-  gravityReversed: 1
+  gravityReversed: 0
   jumpScale: 2
 --- !u!114 &1243571632
 MonoBehaviour:
