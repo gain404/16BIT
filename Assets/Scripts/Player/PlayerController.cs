@@ -6,7 +6,7 @@ public abstract class PlayerController : MonoBehaviour
     public float jumpForce = 7f;
     public bool isDie = false;
     public Vector2 groundCheck;       // 발 위치
-    public float castDistance = 0.1f;  // 레이 거리
+    public float castDistance = 0.1f;  // raycast 거리
     public LayerMask groundLayer;
 
     protected SpriteRenderer spriteRenderer;
@@ -79,19 +79,4 @@ public abstract class PlayerController : MonoBehaviour
     {
         Gizmos.DrawWireCube(transform.position-transform.up * castDistance, groundCheck);
     }
-    //checking jumpable conditions
-    //void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.CompareTag("Ground"))
-    //    {
-    //        isGrounded = true;
-    //    }
-    //}
-    //void OnCollisionExit2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.CompareTag("Ground"))
-    //    {
-    //        isGrounded = false;
-    //    }
-    //}
 }
