@@ -7,11 +7,11 @@ public class SoilCharacterController : PlayerController
 {
     protected override string GetHorizontalAxis()
     {
-        return "SoilHorizontal";
+        return "FireHorizontal";
     }
 
     protected override string GetJumpButton()
     {
-        return "SoilJump";
+        return "FireJump";
     }
 }

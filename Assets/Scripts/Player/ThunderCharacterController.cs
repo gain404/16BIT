@@ -7,11 +7,11 @@ public class ThunderCharacterController : PlayerController
 {
     protected override string GetHorizontalAxis()
     {
-        return "ThunderHorizontal";
+        return "WaterHorizontal";
     }
 
     protected override string GetJumpButton()
     {
-        return "ThunderJump";
+        return "WaterJump";
     }
 }
