@@ -11,8 +11,6 @@ public class Escalator : MonoBehaviour
         escalatorPrefabs = Resources.Load<GameObject>("Prefabs/Escalator");
         if (escalatorPrefabs == null)
             Debug.LogError("프리펩 로드 실패");
-        else
-            Debug.Log("로드 성공");
     }
 
     internal void PlayEscalator()
