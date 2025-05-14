@@ -34,7 +34,7 @@ public class UIManager : MonoBehaviour
 
     public void ShowStarResult()
     {
-        // ¸ðµç º° ÃÊ±âÈ­
+        // ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ê±ï¿½È­
         stageClearStarPanel.SetActive(false);
         stageUnclearStarPanel.SetActive(false);
         timeClearStarPanel.SetActive(false);
