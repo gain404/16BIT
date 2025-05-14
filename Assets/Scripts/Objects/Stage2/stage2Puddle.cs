@@ -20,19 +20,22 @@ public class stage2Puddle : MonoBehaviour
         UpdatePuddleVisual();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (!other.CompareTag("Player")) return;
+        Debug.Log("OnCollisionEnter2D");
+        if (!other.gameObject.CompareTag("Player")) return;
 
-        PlayerController player = other.GetComponent<PlayerController>();
+        PlayerController player = other.gameObject.GetComponent<PlayerController>();
         if (player == null) return;
 
         switch (player.playerType)
         {
             case PlayerType.Soil:
+                Debug.Log("Soil");
                 HandleSoilInteraction();
                 break;
             case PlayerType.Thunder:
+                Debug.Log("Thunder");
                 HandleThunderInteraction();
                 break;
         }

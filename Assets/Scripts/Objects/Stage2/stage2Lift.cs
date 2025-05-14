@@ -10,18 +10,15 @@ public class stage2Lift : MonoBehaviour
 
     private void Update()
     {
-        // 플레이어가 탑승 중이고 리프트가 내려가는 상태라면
         if (isPlayerOnLift && isMovingDown)
         {
-            // 아래로 이동
             Vector3 newPosition = transform.position;
             newPosition.y -= moveSpeed * Time.deltaTime;
 
-            // 특정 위치까지 이동 시 정지
             if (newPosition.y <= lowerYPosition)
             {
                 newPosition.y = lowerYPosition;
-                isMovingDown = false; // 멈춤
+                isMovingDown = false;
             }
 
             transform.position = newPosition;
@@ -41,13 +38,25 @@ public class stage2Lift : MonoBehaviour
         }
     }
 
+<<<<<<< HEAD
+    // 충돌을 통해 탑승 여부 확인
+=======
     // 트리거 영역을 통해 탑승 여부 확인
+>>>>>>> 5bde79f66e348f366aaffa0ef9feacd5483270b4
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             isPlayerOnLift = true;
+<<<<<<< HEAD
+
+            if (collision.gameObject.TryGetComponent<PlayerController>(out var player))
+            {
+                Interact(player);
+            }
+=======
             Interact(collision.gameObject.GetComponent<PlayerController>());
+>>>>>>> 5bde79f66e348f366aaffa0ef9feacd5483270b4
         }
     }
 
