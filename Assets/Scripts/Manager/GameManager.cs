@@ -18,8 +18,6 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        Debug.Log("isGameOver :" + isGameOver);
-        Time.timeScale = 1;
         //싱글톤
         if (instance == null)
         {
@@ -81,16 +79,13 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-
         if (!isGameOver)
         {
-
             isGameOver = true;
             Time.timeScale = 0;
             //게임오버 UI
             UIManager.instance.gameOverPanel.SetActive(true);
         }
-        isGameOver = false;
     }
     public void GameClear()
     {
