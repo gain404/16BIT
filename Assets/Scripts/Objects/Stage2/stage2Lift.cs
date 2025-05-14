@@ -38,25 +38,15 @@ public class stage2Lift : MonoBehaviour
         }
     }
 
-<<<<<<< HEAD
     // 충돌을 통해 탑승 여부 확인
-=======
-    // 트리거 영역을 통해 탑승 여부 확인
->>>>>>> 5bde79f66e348f366aaffa0ef9feacd5483270b4
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             isPlayerOnLift = true;
-<<<<<<< HEAD
 
-            if (collision.gameObject.TryGetComponent<PlayerController>(out var player))
-            {
-                Interact(player);
-            }
-=======
             Interact(collision.gameObject.GetComponent<PlayerController>());
->>>>>>> 5bde79f66e348f366aaffa0ef9feacd5483270b4
         }
     }
 
