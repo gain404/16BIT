@@ -774,7 +774,7 @@ TextureImporter:
         width: 33
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -782,6 +782,27 @@ TextureImporter:
       bones: []
       spriteID: 036dbf8fbc8e07d49a33013e61d3782a
       internalID: -1603530168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterpuddle_full
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 416
+        width: 33
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34f122817edea734692e6b812acad623
+      internalID: 1262039356
       vertices: []
       indices: 
       edges: []
@@ -827,6 +848,7 @@ TextureImporter:
       thunderhouse: 1012429811
       waterpuddle: -813945636
       waterpuddle2: 1339113526
+      waterpuddle_full: 1262039356
       waterpuddlefull: -1603530168
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
