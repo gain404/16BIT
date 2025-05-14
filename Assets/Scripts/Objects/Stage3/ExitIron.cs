@@ -8,10 +8,20 @@ public class ExitIron : MonoBehaviour
     {
         Debug.Log("OnTriggerEnter2D");
         PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+        GameManager.instance.playersAtExit++; // 게임 매니저에 탈출 여부를 전달
+        Debug.Log("탈출한 플레이어 수: " + GameManager.instance.playersAtExit);
         if (collision.gameObject.CompareTag("Player"))
         {
             IsExitForFirePlayer(player.playerType);
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Debug.Log("OnTriggerExit2D");
+        PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+        GameManager.instance.playersAtExit--; // 게임 매니저에 탈출 여부를 전달
+        Debug.Log("탈출한 플레이어 수: " + GameManager.instance.playersAtExit);
     }
 
     internal bool IsExitForFirePlayer(PlayerType playerType)  // PlayerType에 Fire, Water 추가 필요

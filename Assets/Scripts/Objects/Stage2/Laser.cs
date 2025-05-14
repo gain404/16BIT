@@ -4,23 +4,33 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
-    private GameObject player;
+    [Header("레이저 설정")]
+    [SerializeField] protected float maxDistance = 2f;
+    [SerializeField] protected LayerMask mask;
 
-    private void Awake()
+    protected LineRenderer lineRenderer;
+    protected Vector3 origin;
+    protected Vector3 dir;
+    protected Vector3 endPos;
+
+
+    protected void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        lineRenderer = GetComponent<LineRenderer>();
+
+        lineRenderer.positionCount = 2;
+        lineRenderer.useWorldSpace = true;
+        lineRenderer.startWidth = 0.05f;
+        lineRenderer.endWidth = 0.05f;
     }
 
-    protected void OnTriggerEnter2D(Collider2D other)
+    protected void DrawLaser()
     {
-        transform.localScale += player.transform.localScale;
-    }
+        origin = transform.position;
+        dir = Vector3.down;
+        endPos = origin + dir * maxDistance;
 
-    protected void ChangeLaserLength()
-    {
-        //플레이어 위치만큼 줄어들게
-        Vector3 currentScale = transform.localScale;
-        currentScale -= player.transform.localScale;
-        transform.localScale = currentScale;
+        lineRenderer.SetPosition(0, origin);
+        lineRenderer.SetPosition(1, endPos);
     }
 }
