@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        Debug.Log("isGameOver :" + isGameOver);
+        Time.timeScale = 1;
         //싱글톤
         if (instance == null)
         {
@@ -61,9 +63,7 @@ public class GameManager : MonoBehaviour
 
     public void RetryGame()
     {
-        ClearUI();
         Time.timeScale = 1;
-        isGameOver = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -81,13 +81,16 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+
         if (!isGameOver)
         {
+
             isGameOver = true;
             Time.timeScale = 0;
             //게임오버 UI
             UIManager.instance.gameOverPanel.SetActive(true);
         }
+        isGameOver = false;
     }
     public void GameClear()
     {
@@ -100,13 +103,6 @@ public class GameManager : MonoBehaviour
             UIManager.instance.gameClearPanel.SetActive(true);
             //LevelManager.Instance.levelClearUI.SetActive(true);
         }
-    }
-    
-    public void ClearUI()
-    {
-        UIManager.instance.gameClearPanel.SetActive(false);
-        UIManager.instance.gameOverPanel.SetActive(false);
-        UIManager.instance.gamePausePanel.SetActive(false);
     }
 
     public void CheckGameClear()

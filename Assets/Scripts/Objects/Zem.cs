@@ -8,8 +8,8 @@ public class Zem : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            //LevelManager.Instance.getZemAmount++;
-            //Debug.Log("점수: " + LevelManager.Instance.getZemAmount);
+            LevelManager.Instance.getZemAmount++;
+            Debug.Log("점수: " + LevelManager.Instance.getZemAmount);
             Destroy(this.gameObject);
         }
     }
