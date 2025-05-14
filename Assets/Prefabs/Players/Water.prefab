@@ -50,6 +50,11 @@ MonoBehaviour:
   moveSpeed: 5
   jumpForce: 7
   isDie: 0
+  groundCheck: {x: 0.7, y: 0.2}
+  castDistance: 0.8
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
   playerType: 1
 --- !u!50 &617810460532590128
 Rigidbody2D:

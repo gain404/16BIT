@@ -5,28 +5,29 @@ using UnityEngine.SceneManagement;
 
 public class ButtonHandler : MonoBehaviour
 {
-    public void OnClickSceneChangeButton(string stageName) // ½ºÅ×ÀÌÁö°¡ ¿©·¯ °³ÀÌ±â ¶§¹®¿¡, ¼±ÅÃÇÑ ½ºÅ×ÀÌÁö ÀÌ¸§°ú °°Àº °ªÀ» ÀÔ·Â
+    private bool isPause = false;
+    public void OnClickStartButton(string stageName) // ìŠ¤í…Œì´ì§€ê°€ ì—¬ëŸ¬ ê°œì´ê¸° ë•Œë¬¸ì—, ì„ íƒí•œ ìŠ¤í…Œì´ì§€ ì´ë¦„ê³¼ ê°™ì€ ê°’ì„ ì…ë ¥
     {
-        // ¼±ÅÃÇÑ ½ºÅ×ÀÌÁö¾À ÀÌµ¿
-        // SceneManager.LoadScean("¾ÀÀÌ¸§");
+        // ì„ íƒí•œ ìŠ¤í…Œì´ì§€ì”¬ ì´ë™
+        // SceneManager.LoadScean("ì”¬ì´ë¦„");
         //GARALoadSceneManager.Instance.LoadScene(SceneType.StageSelectScene);
 
     }
 
-    public void OnClickInGameButton() // ¸ŞÀÎ¾À¿¡¼­ stageSelectSceneÀ¸·Î ³Ñ¾î°¡´Â ¹öÆ°
+    public void OnClickInGameButton() // ë©”ì¸ì”¬ì—ì„œ stageSelectSceneìœ¼ë¡œ ë„˜ì–´ê°€ëŠ” ë²„íŠ¼
     {
         SceneManager.LoadScene("StageSelectScene");
     }
 
     public void OnClickExitButton()
     {
-        // ¸ŞÀÎ¾À ÀÌµ¿
-        // SceneManager.LoadScean("¾ÀÀÌ¸§");
+        // ë©”ì¸ì”¬ ì´ë™
+        SceneManager.LoadScene("StageSelectScene");
     }
 
     public void OnClickGameQuitButton()
     {
-        // °ÔÀÓÁ¾·á
+        // ê²Œì„ì¢…ë£Œ
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
@@ -36,19 +37,24 @@ public class ButtonHandler : MonoBehaviour
 
     public void OnClickRetryButton()
     {
-        // ÇöÀç ½ºÅ×ÀÌÁö¾À ´Ù½Ã ½ÃÀÛ
+        // í˜„ì¬ ìŠ¤í…Œì´ì§€ì”¬ ë‹¤ì‹œ ì‹œì‘
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void OnClickPauseButton()
     {
-        // ½Ã°£ Èå¸§ Á¤Áö
+        Debug.Log("Pause");
+        UIManager.instance.gamePausePanel.SetActive(true);
+        isPause = true;
         Time.timeScale = 0f;
+
     }
 
     public void OnClickResumeButton()
     {
-        // ½Ã°£ Èå¸£°Ô
+        Debug.Log("Resume");
+        UIManager.instance.gamePausePanel.SetActive(false);
+        isPause = false;
         Time.timeScale = 1f;
     }
 }

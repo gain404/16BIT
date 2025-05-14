@@ -5,17 +5,17 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     public GameObject stageClearStarPanel;
-    //public GameObject stageUnclearStarPanel;
+  //  public GameObject stageUnclearStarPanel;
     public GameObject timeClearStarPanel;
-    //public GameObject timeUnclearStarPanel;
+  //  public GameObject timeUnclearStarPanel;
     public GameObject zemClearStarPanel;
-    //public GameObject zemUnclearStarPanel;
+  //  public GameObject zemUnclearStarPanel;
     public GameObject gameClearPanel;
     public GameObject gameOverPanel;
     public GameObject gamePausePanel;
-    //public GameObject gameSettingsPanel;
-    //public GameObject inGamePanel;
-
+ //   public GameObject gameSettingsPanel;
+  //  public GameObject inGamePanel;
+  
     public static UIManager instance { get; private set; }
 
     private void Awake()
@@ -23,7 +23,7 @@ public class UIManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+           // DontDestroyOnLoad(gameObject);
         }
 
         else
@@ -34,39 +34,41 @@ public class UIManager : MonoBehaviour
 
     public void ShowStarResult()
     {
-        // ¸ðµç º° ÃÊ±âÈ­
+        // ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ê±ï¿½È­
         stageClearStarPanel.SetActive(false);
-        //stageUnclearStarPanel.SetActive(false);
+      //  stageUnclearStarPanel.SetActive(false);
         timeClearStarPanel.SetActive(false);
-        //timeUnclearStarPanel.SetActive(false);
+      //  timeUnclearStarPanel.SetActive(false);
         zemClearStarPanel.SetActive(false);
-        //zemUnclearStarPanel.SetActive(false);
+      //  zemUnclearStarPanel.SetActive(false);
 
         if (LevelManager.Instance.getClearStar)
         {
             stageClearStarPanel.SetActive(true);
         }
-        //else
-        //{
-        //    stageUnclearStarPanel.SetActive(true);
-        //}
+        else
+        {
+       //     stageUnclearStarPanel.SetActive(true);
+        }
+
 
         if (LevelManager.Instance.getTimeStar)
         {
             timeClearStarPanel.SetActive(true);
         }
-        //else
-        //{
-        //    timeUnclearStarPanel.SetActive(true);
-        //}
+        else
+        {
+      //      timeUnclearStarPanel.SetActive(true);
+        }
 
         if (LevelManager.Instance.getZemStar)
         {
             zemClearStarPanel.SetActive(true);
         }
-        //else
-        //{
-        //    zemUnclearStarPanel.SetActive(true);
-        //}
+        else
+        {
+     //       zemUnclearStarPanel.SetActive(true);
+        }
+
     }
 }
