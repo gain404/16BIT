@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18845cf76d4b0fd41bd5f2f41606a2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: 2
+  scene: 0
   sceneBtn: {fileID: 2034524}
   lockObject: {fileID: 2099653244}
   isOpenStage: 0
@@ -2444,7 +2444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4693612cc295ad74089182013f74a638, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnlockedStage: 2
+  UnlockedStage: 0
 --- !u!4 &935862912
 Transform:
   m_ObjectHideFlags: 0
@@ -3196,7 +3196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18845cf76d4b0fd41bd5f2f41606a2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: 3
+  scene: 1
   sceneBtn: {fileID: 1138145913}
   lockObject: {fileID: 183269119}
   isOpenStage: 0
@@ -4143,7 +4143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18845cf76d4b0fd41bd5f2f41606a2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: 4
+  scene: 2
   sceneBtn: {fileID: 1576470088}
   lockObject: {fileID: 647526044}
   isOpenStage: 0
