@@ -1,21 +1,18 @@
 using UnityEngine;
+using System.Collections;
 
 public class stage2Puddle : MonoBehaviour
 {
     private enum PuddleState
     {
-        Normal,     // 초기 상태
-        Muddy,      // 흙탕물 상태 (현재는 사용 안함)
-        Dried       // 말라서 번개냥이 통과 가능
+        Normal,
+        Dried
     }
 
     private PuddleState currentState = PuddleState.Normal;
     private Renderer puddleRenderer;
 
-    // 색상 설정 (선택 사항)
-    public Color normalColor = Color.blue;
-    public Color muddyColor = new Color(0.4f, 0.2f, 0f); // 갈색
-    public Color driedColor = new Color(0.8f, 0.7f, 0.5f); // 말라있는 흙색
+    public Color driedColor = new Color(0.8f, 0.7f, 0.5f);
 
     void Start()
     {
@@ -23,19 +20,22 @@ public class stage2Puddle : MonoBehaviour
         UpdatePuddleVisual();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (!other.CompareTag("Player")) return;
+        Debug.Log("OnCollisionEnter2D");
+        if (!other.gameObject.CompareTag("Player")) return;
 
-        PlayerController player = other.GetComponent<PlayerController>();
+        PlayerController player = other.gameObject.GetComponent<PlayerController>();
         if (player == null) return;
 
         switch (player.playerType)
         {
             case PlayerType.Soil:
+                Debug.Log("Soil");
                 HandleSoilInteraction();
                 break;
             case PlayerType.Thunder:
+                Debug.Log("Thunder");
                 HandleThunderInteraction();
                 break;
         }
@@ -45,7 +45,7 @@ public class stage2Puddle : MonoBehaviour
     {
         if (currentState == PuddleState.Normal)
         {
-            Debug.Log("흙냥이가 물웅덩이를 흙탕물로 바꾸고 말립니다.");
+            Debug.Log("흙냥이가 물웅덩이를 말립니다.");
             currentState = PuddleState.Dried;
             UpdatePuddleVisual();
         }
@@ -55,27 +55,20 @@ public class stage2Puddle : MonoBehaviour
     {
         if (currentState == PuddleState.Normal)
         {
-            Debug.Log("번개냥이가 물웅덩이에 닿아 게임 오버!");
-            // GameManager.Instance.GameOver(); // 필요 시 게임 오버 로직 실행
+            Debug.Log("번개냥이가 젖은 물웅덩이에 닿아 게임 오버!");
+            GameManager.instance.GameOver();
         }
-        else if (currentState == PuddleState.Dried)
+        else
         {
-            Debug.Log("번개냥이가 말라 있는 웅덩이를 안전하게 통과합니다.");
+            Debug.Log("번개냥이가 마른 웅덩이를 안전하게 통과합니다.");
         }
     }
 
     private void UpdatePuddleVisual()
     {
-        if (puddleRenderer == null) return;
-
-        switch (currentState)
+        if (puddleRenderer != null && currentState == PuddleState.Dried)
         {
-            case PuddleState.Normal:
-                puddleRenderer.material.color = normalColor;
-                break;
-            case PuddleState.Dried:
-                puddleRenderer.material.color = driedColor;
-                break;
+            puddleRenderer.material.color = driedColor;
         }
     }
 }

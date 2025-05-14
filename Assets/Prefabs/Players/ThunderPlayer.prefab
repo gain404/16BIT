@@ -101,9 +101,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2.4
   jumpForce: 3.95
-  isDie: 0
-  groundCheck: {x: 0.49, y: 0.06}
-  castDistance: 0.31
+  isDie: 1
+  groundCheck: {x: 0.7, y: 0.11}
+  castDistance: 0.34
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
