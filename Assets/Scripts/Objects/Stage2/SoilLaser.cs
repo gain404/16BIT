@@ -4,17 +4,27 @@ using UnityEngine;
 
 public class SoilLaser : Laser
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void Update()
     {
-        if (collision.collider.TryGetComponent<PlayerController>(out var pt))
+        DrawLaser();
+        CheckHit();
+    }
+
+    private void CheckHit()
+    {
+        Vector2 origin = transform.position;
+        Vector2 dir = Vector2.down;
+
+        RaycastHit2D hit = Physics2D.Raycast(origin, dir, maxDistance, mask);
+        if (hit.collider != null)
         {
-            if (pt.playerType == PlayerType.Thunder)
+            Vector3 hitPoint = hit.point;
+            lineRenderer.SetPosition(1, hitPoint);
+
+            if (hit.collider.TryGetComponent<PlayerController>(out var pt)
+                && pt.playerType == PlayerType.Thunder)
             {
                 GameManager.instance.GameOver();
-            }
-            else if (pt.playerType == PlayerType.Soil)
-            {
-                ChangeLaserLength();
             }
         }
     }
