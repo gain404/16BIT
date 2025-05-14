@@ -62,11 +62,11 @@ public class LevelManager : MonoBehaviour
         switch (currentStage)
         {
             case Stage.Stage1:
-                AudioManager.instance.Play("Picnic");
+                AudioManager.instance.Play("Premonition");
                 break;
 
             case Stage.Stage2:
-                AudioManager.instance.Play("Premonition");
+                AudioManager.instance.Play("Picnic");
                 break;
 
             case Stage.Stage3:
