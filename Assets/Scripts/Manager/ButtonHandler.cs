@@ -14,7 +14,8 @@ public class ButtonHandler : MonoBehaviour
     public void OnClickExitButton()
     {
         // ∏ﬁ¿Œæ¿ ¿Ãµø
-        // SceneManager.LoadScean("æ¿¿Ã∏ß");
+        Time.timeScale = 1;
+        SceneManager.LoadScene("StageSelectScene");
     }
 
     public void OnClickRetryButton()
