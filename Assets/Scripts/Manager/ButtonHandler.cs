@@ -16,7 +16,7 @@ public class ButtonHandler : MonoBehaviour
     public void OnClickExitButton()
     {
         // 메인씬 이동
-         SceneManager.LoadScene("StageSelectScene");
+        SceneManager.LoadScene("StageSelectScene");
     }
 
     public void OnClickRetryButton()
@@ -27,24 +27,18 @@ public class ButtonHandler : MonoBehaviour
 
     public void OnClickPauseButton()
     {
-        // 시간 흐름 정지
+        Debug.Log("Pause");
+        UIManager.instance.gamePausePanel.SetActive(true);
+        isPause = true;
+        Time.timeScale = 0f;
 
-        if (!isPause)
-        {
-            Time.timeScale = 0f;
-            isPause = true;
-        }
-        else
-        {
-            
-            Time.timeScale = 1f;
-            isPause = false;
-        }
     }
 
     public void OnClickResumeButton()
     {
-        // 시간 흐르게
+        Debug.Log("Resume");
+        UIManager.instance.gamePausePanel.SetActive(false);
+        isPause = false;
         Time.timeScale = 1f;
     }
 }
