@@ -27,9 +27,7 @@
     :smiley_cat: <a href="#만든-사람들"><strong>만든 사람들</strong></a></td><br><br>
   </tr>
 </table>
-<br>
-<br>
-<br>
+
 
 ---
 
