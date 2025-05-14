@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+           // DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviour
             //레벨 클리어
             isGameOver = true;
             UIManager.instance.gameClearPanel.SetActive(true);
-            //LevelManager.Instance.OnGameFinished();
+            LevelManager.Instance.OnGameFinished();
             GARALoadSceneManager.Instance.LevelUp(); //게임 클리어하면 입장 가능한 스테이지 오픈 
             //LevelManager.Instance.levelClearUI.SetActive(true);
         }
@@ -118,6 +118,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("게임 클리어");
             LevelManager.Instance.OnGameFinished();
             // LevelManager.Instance.levelClearUI.SetActive(true);
+            GARALoadSceneManager.Instance.LevelUp(); //게임 클리어하면 입장 가능한 스테이지 오픈 
             isGameClear = false;
         }
     }
