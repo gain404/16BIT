@@ -3330,7 +3330,7 @@ GameObject:
   - component: {fileID: 32164561}
   - component: {fileID: 32164560}
   m_Layer: 5
-  m_Name: HomeButton
+  m_Name: ResumeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3399,7 +3399,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 32164561}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1367207443}
+        m_TargetAssemblyTypeName: ButtonHandler, Assembly-CSharp
+        m_MethodName: OnClickResumeButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &32164561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8535,7 +8547,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &388653722
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8709,7 +8721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.3647059}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.92156863}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9494,12 +9506,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6915339181715980596, guid: 5cf302264ba21dd439bed50b834d2e5c, type: 3}
+      propertyPath: sounds.Array.data[1].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915339181715980596, guid: 5cf302264ba21dd439bed50b834d2e5c, type: 3}
       propertyPath: sounds.Array.data[0].volume
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6915339181715980596, guid: 5cf302264ba21dd439bed50b834d2e5c, type: 3}
       propertyPath: sounds.Array.data[1].volume
-      value: 0.5
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6915339181715980596, guid: 5cf302264ba21dd439bed50b834d2e5c, type: 3}
       propertyPath: sounds.Array.data[2].volume
@@ -19390,7 +19406,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &930972900
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20378,7 +20394,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1156261601}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1367207443}
+        m_TargetAssemblyTypeName: ButtonHandler, Assembly-CSharp
+        m_MethodName: OnClickExitButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1156261601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20577,7 +20605,7 @@ PrefabInstance:
     - target: {fileID: 7170104808162866514, guid: c70356e6d838d0a4985be1f24b682648, type: 3}
       propertyPath: teleportTarget
       value: 
-      objectReference: {fileID: 665773635}
+      objectReference: {fileID: 2071057196}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20630,7 +20658,7 @@ GameObject:
   - component: {fileID: 1212969816}
   - component: {fileID: 1212969815}
   m_Layer: 5
-  m_Name: NextStage
+  m_Name: EndGameButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20699,7 +20727,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1212969816}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1367207443}
+        m_TargetAssemblyTypeName: ButtonHandler, Assembly-CSharp
+        m_MethodName: OnClickExitButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1212969816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20839,7 +20879,7 @@ Transform:
   m_GameObject: {fileID: 1243571626}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.25, y: -8.01, z: 0}
+  m_LocalPosition: {x: 15.62, y: 5.16, z: 0}
   m_LocalScale: {x: 0.85, y: 0.85, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -20859,7 +20899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reverseGravity: 9.81
-  gravityReversed: 0
+  gravityReversed: 1
   jumpScale: 2
 --- !u!114 &1243571632
 MonoBehaviour:
@@ -26498,7 +26538,7 @@ Transform:
   m_GameObject: {fileID: 1566601062}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.51, y: -7.57, z: 0}
+  m_LocalPosition: {x: 14.359999, y: 8.75, z: 0}
   m_LocalScale: {x: 0.85, y: 0.85, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -28758,7 +28798,7 @@ GameObject:
   - component: {fileID: 2128370755}
   - component: {fileID: 2128370754}
   m_Layer: 5
-  m_Name: NextStage (1)
+  m_Name: RetryButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28827,7 +28867,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2128370755}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1367207443}
+        m_TargetAssemblyTypeName: ButtonHandler, Assembly-CSharp
+        m_MethodName: OnClickRetryButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2128370755
 MonoBehaviour:
   m_ObjectHideFlags: 0
