@@ -27,6 +27,30 @@ public class GARALoadSceneManager : MonoBehaviour
             Destroy(gameObject);
     }
 
+    private void Start()
+    {
+        // AudioManager.instance가 null이면 씬 전환 후 다시 찾기
+        if (AudioManager.instance == null)
+        {
+            AudioManager foundAudioManager = FindObjectOfType<AudioManager>();
+            if (foundAudioManager != null)
+            {
+                foundAudioManager.Play("Tired");
+                Debug.Log("AudioManager Play.");
+
+            }
+            else
+            {
+                Debug.LogWarning("AudioManager not found in scene.");
+            }
+        }
+        else
+        {
+            AudioManager.instance.Play("Tired");
+            Debug.Log("AudioManager Play2.");
+        }
+    }
+
     public void LoadScene(SceneType _scene)
     {
         // _scene에 따라 씬 이름을 매핑
