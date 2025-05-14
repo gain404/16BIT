@@ -1,27 +1,29 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class stage2Lift : MonoBehaviour
+public class stage2Lift_Right : MonoBehaviour
 {
     public float moveSpeed = 2f; // 리프트 이동 속도
-    public float lowerYPosition = 1f; // 리프트가 멈출 y 위치
+    public float lowerYPosition = 0f; // 리프트가 멈출 y 위치
 
     private bool isPlayerOnLift = false;
-    private bool isMovingDown = false;
+    private bool isMovingUp = false;
 
     private void Update()
     {
         // 플레이어가 탑승 중이고 리프트가 내려가는 상태라면
-        if (isPlayerOnLift && isMovingDown)
+        if (isPlayerOnLift && isMovingUp)
         {
-            // 아래로 이동
+            // 위로 이동
             Vector3 newPosition = transform.position;
-            newPosition.y -= moveSpeed * Time.deltaTime;
+            newPosition.y += moveSpeed * Time.deltaTime;
 
             // 특정 위치까지 이동 시 정지
-            if (newPosition.y <= lowerYPosition)
+            if (newPosition.y >= lowerYPosition)
             {
                 newPosition.y = lowerYPosition;
-                isMovingDown = false; // 멈춤
+                isMovingUp = false; // 멈춤
             }
 
             transform.position = newPosition;
@@ -32,8 +34,8 @@ public class stage2Lift : MonoBehaviour
     {
         if (isPlayerOnLift)
         {
-            Debug.Log("리프트를 타고 내려갑니다.");
-            isMovingDown = true;
+            Debug.Log("리프트를 타고 올라갑니다.");
+            isMovingUp = true;
         }
         else
         {
