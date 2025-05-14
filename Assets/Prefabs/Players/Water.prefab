@@ -51,7 +51,7 @@ MonoBehaviour:
   jumpForce: 7
   isDie: 0
   groundCheck: {x: 0.7, y: 0.2}
-  castDistance: 1
+  castDistance: 0.8
   groundLayer:
     serializedVersion: 2
     m_Bits: 8

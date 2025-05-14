@@ -61,7 +61,9 @@ public class GameManager : MonoBehaviour
 
     public void RetryGame()
     {
+        ClearUI();
         Time.timeScale = 1;
+        isGameOver = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -98,6 +100,13 @@ public class GameManager : MonoBehaviour
             UIManager.instance.gameClearPanel.SetActive(true);
             //LevelManager.Instance.levelClearUI.SetActive(true);
         }
+    }
+    
+    public void ClearUI()
+    {
+        UIManager.instance.gameClearPanel.SetActive(false);
+        UIManager.instance.gameOverPanel.SetActive(false);
+        UIManager.instance.gamePausePanel.SetActive(false);
     }
 
     public void CheckGameClear()
