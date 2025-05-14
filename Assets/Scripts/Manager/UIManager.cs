@@ -15,7 +15,7 @@ public class UIManager : MonoBehaviour
     public GameObject gamePausePanel;
  //   public GameObject gameSettingsPanel;
   //  public GameObject inGamePanel;
-
+  
     public static UIManager instance { get; private set; }
 
     private void Awake()
@@ -51,6 +51,7 @@ public class UIManager : MonoBehaviour
        //     stageUnclearStarPanel.SetActive(true);
         }
 
+
         if (LevelManager.Instance.getTimeStar)
         {
             timeClearStarPanel.SetActive(true);
@@ -68,5 +69,6 @@ public class UIManager : MonoBehaviour
         {
      //       zemUnclearStarPanel.SetActive(true);
         }
+
     }
 }

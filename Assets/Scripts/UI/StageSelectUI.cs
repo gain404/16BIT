@@ -7,18 +7,18 @@ public class StageSelectUI : MonoBehaviour
 {
     [Header("스테이지 UI 목록")]
     [SerializeField] private GameObject[] stageUIs;
+    [SerializeField] List<SceneChangeController> stageSlotLists = new List<SceneChangeController>();
 
     [Header("버튼")]
     [SerializeField] private Button nextButton;
     [SerializeField] private Button prevButton;
-    [SerializeField] private Button SceneChangeButton;
-
 
     private int currentStageIndex = 0;
 
     private void Start()
     {
         UpdateStageUI();
+        OpenLevelUpStage();
     }
 
     public void OnClickNextStageButton()
@@ -55,15 +55,13 @@ public class StageSelectUI : MonoBehaviour
         nextButton.interactable = currentIndex < maxCount - 1;
     }
 
-    public void OnClickSceneChange()
-    {
-        if (GARALoadSceneManager.Instance == null)
-        {
-            Debug.LogError("LoadSceneManager.Instance가 null입니다.");
-            return;
-        }
 
-        Debug.Log("StageSelectScene으로 전환을 시도합니다.");
-        GARALoadSceneManager.Instance.LoadScene(SceneType.StageSelectScene);
+    public void OpenLevelUpStage()
+    {
+        for (int i = 0; i <= (int)GARALoadSceneManager.Instance.UnlockedStage; i++)
+        {
+            stageSlotLists[i].OpenStage();
+        }
     }
+
 }

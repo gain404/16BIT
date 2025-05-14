@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StartButton : MonoBehaviour
+public class SceneChangeController : MonoBehaviour
 {
     [SerializeField] SceneType scene;
     [SerializeField] Button sceneBtn;
@@ -14,14 +12,15 @@ public class StartButton : MonoBehaviour
     {
         sceneBtn.onClick.RemoveAllListeners();
         sceneBtn.onClick.AddListener(() => OnClickStartBtn());
-
     }
+
+
     public void OnClickStartBtn()
     {
         if (isOpenStage)
         {
+            GARALoadSceneManager.Instance.ChangeLevel(scene);
             GARALoadSceneManager.Instance.LoadScene(scene);
-            //LevelManager.Instance.OnClickStart();
         }
     }
     public void OpenStage()
