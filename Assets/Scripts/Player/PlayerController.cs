@@ -51,8 +51,8 @@ public abstract class PlayerController : MonoBehaviour
         bool isMoving = Mathf.Abs(horizontal) > 0.1f;
         float speed = _rigidbody.velocity.magnitude;
 
-        animator.SetFloat("run", speed);
-        animator.SetBool("isJumping", !isGrounded());
+        //animator.SetFloat("run", speed);
+        //animator.SetBool("isJumping", !isGrounded());
         //animator.SetBool("isRunning", isMoving);
     }
 

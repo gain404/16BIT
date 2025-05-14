@@ -13,18 +13,16 @@ public class Floor2Plant : MonoBehaviour
             Debug.Log("게임오브젝트를 찾지 못했습니다.");
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.TryGetComponent<PlayerController>(out var pt) && pt.playerType == PlayerType.Soil)
+        if (collision.collider.TryGetComponent<PlayerController>(out var pt) && pt.playerType == PlayerType.Soil)
         {
-
             int plantCount = GameObject.FindGameObjectsWithTag("Plant").Length;
 
             if (plantCount >= 3)
                 return;
            
             SpawnPlant();
-
         }
     }
 

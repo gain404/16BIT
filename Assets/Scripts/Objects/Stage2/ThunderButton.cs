@@ -18,7 +18,7 @@ public class ThunderButton : MonoBehaviour
             if (pt.playerType == PlayerType.Thunder)
             {
                 Debug.Log("thunder타입 플레이어와 충돌");
-                escalator.InvokeRepeating(nameof(Escalator.PlayEscalator), 0f, 2f);
+                escalator.InvokeRepeating(nameof(Escalator.PlayEscalator), 0f, 5f);
             }
         }
     }
