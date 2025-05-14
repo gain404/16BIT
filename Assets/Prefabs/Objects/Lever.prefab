@@ -151,3 +151,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2677e517286398a4ab00c0fad0a5bb02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activatedLever: {fileID: 21300000, guid: 0a9506ad7fcb1ce459ab33b01a8edd62, type: 3}
+  defaultLever: {fileID: 21300000, guid: 38e2eaf9d749d4b448b6984af944ab82, type: 3}
