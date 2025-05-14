@@ -14,7 +14,7 @@ public class GARALoadSceneManager : MonoBehaviour
 {
     public static GARALoadSceneManager Instance { get; private set; }
 
-    public SceneType UnlockedStage = SceneType.Stage1;
+    public SceneType UnlockedStage;
 
     private void Awake()
     {
