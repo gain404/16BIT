@@ -12,14 +12,14 @@ public class Floor2NPC : MonoBehaviour
         escalator = FindObjectOfType<Escalator>();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             isPush = true;
         }
     }
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -42,6 +42,12 @@ public class Floor2NPC : MonoBehaviour
             //이라는~ UI소환
             Debug.Log("npc와 대화");
             escalator.InvokeRepeating(nameof(Escalator.PlayEscalator), 1f, 2f);
+            Invoke(nameof(StopEscalator), 10f);
         }
+    }
+
+    private void StopEscalator()
+    {
+        escalator.CancelInvoke(nameof(Escalator.PlayEscalator));
     }
 }

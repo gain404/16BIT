@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,6 +16,7 @@ public class LevelManager : MonoBehaviour
     // 게임 진행 시간 및 시간 관련 별 획득 여부
     public float gameTime;
     public float getStartime;
+    public TextMeshProUGUI timeText;
 
     // 별 획득 여부
     internal bool getClearStar = false;
@@ -40,8 +42,6 @@ public class LevelManager : MonoBehaviour
 
     private void Awake()
     {
-        string currentSceneName = SceneManager.GetActiveScene().name;
-
         if (Instance == null)
         {
             Instance = this;
@@ -56,6 +56,23 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         onGameStarted = true;
+
+        Stage currentStage = GetCurrentStage();
+
+        switch (currentStage)
+        {
+            case Stage.Stage1:
+                AudioManager.instance.Play("Premonition");
+                break;
+
+            case Stage.Stage2:
+                AudioManager.instance.Play("Picnic");
+                break;
+
+            case Stage.Stage3:
+                AudioManager.instance.Play("Space");
+                break;
+        }
     }
 
     private void Update()
@@ -66,9 +83,13 @@ public class LevelManager : MonoBehaviour
 
     private void OnGameStarted()
     {
+        
         if (onGameStarted && !onGameFinished)
         {
+            Debug.Log("게임 시작!");
             gameTime += Time.deltaTime;
+            timeText.text = gameTime.ToString("F1");
+            Debug.Log("시간 흐르기");
         }
     }
 
@@ -101,9 +122,21 @@ public class LevelManager : MonoBehaviour
         onGameFinished = true;
         onGameStarted = false;
 
-        if (getClearStar) TotalStarAmount++;
-        if (getTimeStar) TotalStarAmount++;
-        if (getZemStar) TotalStarAmount++;
+        if (getClearStar)
+        {
+            TotalStarAmount++;
+        }
+        if (getTimeStar)
+        {
+            TotalStarAmount++;
+            UIManager.instance.timeClearStarPanel.SetActive(false);
+
+        }
+        if (getZemStar)
+        {
+            TotalStarAmount++;
+            UIManager.instance.zemClearStarPanel.SetActive(false);
+        }
 
         Debug.Log("스타(클리어): " + getClearStar);
         Debug.Log("스타(시간): " + getTimeStar);
