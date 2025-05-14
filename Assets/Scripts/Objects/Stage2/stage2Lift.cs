@@ -3,7 +3,7 @@ using UnityEngine;
 public class stage2Lift : MonoBehaviour
 {
     public float moveSpeed = 2f; // 리프트 이동 속도
-    public float lowerYPosition = 0f; // 리프트가 멈출 y 위치
+    public float lowerYPosition = 1f; // 리프트가 멈출 y 위치
 
     private bool isPlayerOnLift = false;
     private bool isMovingDown = false;
@@ -42,15 +42,16 @@ public class stage2Lift : MonoBehaviour
     }
 
     // 트리거 영역을 통해 탑승 여부 확인
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             isPlayerOnLift = true;
+            Interact(other.GetComponent<PlayerController>());
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
