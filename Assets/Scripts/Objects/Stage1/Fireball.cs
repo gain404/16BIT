@@ -33,7 +33,7 @@ public class Fireball : MonoBehaviour
         PlayerController player = collision.GetComponent<PlayerController>();
         if (player != null && player.playerType == PlayerType.Water)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            GameManager.instance.GameOver();
         }
     }
 
