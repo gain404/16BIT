@@ -12,19 +12,19 @@
 
 <table>
   <tr>
-    <td align="center">:cat: <a href="#프로젝트-소개"><strong>프로젝트 소개</strong></a></td>
+    :cat: <a href="#프로젝트-소개"><strong>프로젝트 소개</strong></a></td><br><br>
   </tr>
   <tr>
-    <td align="center">:smile_cat: <a href="#게임-로직-설명"><strong>게임 로직 설명</strong></a></td>
+    :smile_cat: <a href="#게임-로직-설명"><strong>게임 로직 설명</strong></a></td><br><br>
   </tr>
   <tr>
-    <td align="center">:heart_eyes_cat: <a href="#사용-기술"><strong>사용 기술</strong></a></td>
+    :heart_eyes_cat: <a href="#사용-기술"><strong>사용 기술</strong></a></td><br><br>
   </tr>
   <tr>
-    <td align="center">:joy_cat: <a href="#트러블-슈팅"><strong>트러블 슈팅</strong></a></td>
+    :joy_cat: <a href="#트러블-슈팅"><strong>트러블 슈팅</strong></a></td><br><br>
   </tr>
   <tr>
-    <td align="center">:smiley_cat: <a href="#만든-사람들"><strong>만든 사람들</strong></a></td>
+    :smiley_cat: <a href="#만든-사람들"><strong>만든 사람들</strong></a></td><br><br>
   </tr>
 </table>
 <br>
