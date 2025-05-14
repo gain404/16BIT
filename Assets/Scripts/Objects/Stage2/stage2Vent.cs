@@ -6,6 +6,7 @@ public class stage2Vent : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("È¯Ç³±¸ Ãæµ¹!");
         if (collision.CompareTag("Player") &&
             collision.TryGetComponent<PlayerController>(out var player))
         {
