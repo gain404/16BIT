@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9026179598383172548}
   - component: {fileID: 3167358248264808851}
   - component: {fileID: 5110279734816301221}
+  - component: {fileID: 3773715056291750294}
   m_Layer: 6
   m_Name: ThunderPlayer
   m_TagString: Player
@@ -180,3 +181,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3611171, y: 1.8721689}
   m_EdgeRadius: 0
+--- !u!95 &3773715056291750294
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2221412549878950899}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1655eb0dad1fc3e46821aed9b424e902, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

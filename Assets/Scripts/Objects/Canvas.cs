@@ -5,8 +5,8 @@ using UnityEngine;
 public class Canvas : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
+    //void Start()
+    //{
+    //    DontDestroyOnLoad(gameObject);
+    //}
 }

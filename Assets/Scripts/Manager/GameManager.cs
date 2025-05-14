@@ -64,6 +64,7 @@ public class GameManager : MonoBehaviour
     public void RetryGame()
     {
         Time.timeScale = 1;
+        UIManager.instance.gameOverPanel.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -101,6 +102,7 @@ public class GameManager : MonoBehaviour
             //레벨 클리어
             isGameOver = true;
             UIManager.instance.gameClearPanel.SetActive(true);
+            //LevelManager.Instance.OnGameFinished();
             GARALoadSceneManager.Instance.LevelUp(); //게임 클리어하면 입장 가능한 스테이지 오픈 
             //LevelManager.Instance.levelClearUI.SetActive(true);
         }
