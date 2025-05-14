@@ -86,10 +86,10 @@ public class LevelManager : MonoBehaviour
         
         if (onGameStarted && !onGameFinished)
         {
-            Debug.Log("게임 시작!");
+            //Debug.Log("게임 시작!");
             gameTime += Time.deltaTime;
             //timeText.text = gameTime.ToString("F1");
-            Debug.Log("시간 흐르기");
+            //Debug.Log("시간 흐르기");
         }
     }
 
