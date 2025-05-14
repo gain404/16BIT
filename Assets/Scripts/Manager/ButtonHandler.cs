@@ -5,23 +5,39 @@ using UnityEngine.SceneManagement;
 
 public class ButtonHandler : MonoBehaviour
 {
-
     private bool isPause = false;
-    public void OnClickStartButton(string stageName) // ½ºÅ×ÀÌÁö°¡ ¿©·¯ °³ÀÌ±â ¶§¹®¿¡, ¼±ÅÃÇÑ ½ºÅ×ÀÌÁö ÀÌ¸§°ú °°Àº °ªÀ» ÀÔ·Â
+    public void OnClickStartButton(string stageName) // ìŠ¤í…Œì´ì§€ê°€ ì—¬ëŸ¬ ê°œì´ê¸° ë•Œë¬¸ì—, ì„ íƒí•œ ìŠ¤í…Œì´ì§€ ì´ë¦„ê³¼ ê°™ì€ ê°’ì„ ì…ë ¥
     {
-        // ¼±ÅÃÇÑ ½ºÅ×ÀÌÁö¾À ÀÌµ¿
-        // SceneManager.LoadScean("¾ÀÀÌ¸§");
+        // ì„ íƒí•œ ìŠ¤í…Œì´ì§€ì”¬ ì´ë™
+        // SceneManager.LoadScean("ì”¬ì´ë¦„");
+        //GARALoadSceneManager.Instance.LoadScene(SceneType.StageSelectScene);
+
+    }
+
+    public void OnClickInGameButton() // ë©”ì¸ì”¬ì—ì„œ stageSelectSceneìœ¼ë¡œ ë„˜ì–´ê°€ëŠ” ë²„íŠ¼
+    {
+        SceneManager.LoadScene("StageSelectScene");
     }
 
     public void OnClickExitButton()
     {
-        // ¸ŞÀÎ¾À ÀÌµ¿
+        // ë©”ì¸ì”¬ ì´ë™
         SceneManager.LoadScene("StageSelectScene");
+    }
+
+    public void OnClickGameQuitButton()
+    {
+        // ê²Œì„ì¢…ë£Œ
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+       Application.Quit();  
+#endif
     }
 
     public void OnClickRetryButton()
     {
-        // ÇöÀç ½ºÅ×ÀÌÁö¾À ´Ù½Ã ½ÃÀÛ
+        // í˜„ì¬ ìŠ¤í…Œì´ì§€ì”¬ ë‹¤ì‹œ ì‹œì‘
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

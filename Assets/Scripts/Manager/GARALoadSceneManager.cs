@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 
 public enum SceneType
 {
-    MainScene,
-    StageSelectScene,
     Stage1,
     Stage2,
     Stage3
@@ -15,6 +13,8 @@ public enum SceneType
 public class GARALoadSceneManager : MonoBehaviour
 {
     public static GARALoadSceneManager Instance { get; private set; }
+
+    public SceneType UnlockedStage = SceneType.Stage1;
 
     private void Awake()
     {
@@ -33,5 +33,15 @@ public class GARALoadSceneManager : MonoBehaviour
         string sceneName = _scene.ToString();
         Debug.Log($"Loading scene: {sceneName}");
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void LevelUp()
+    {
+        UnlockedStage += 1;
+    }
+
+    public void ChangeLevel(SceneType _stage)
+    {
+        UnlockedStage = _stage;
     }
 }

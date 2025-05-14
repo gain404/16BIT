@@ -101,6 +101,7 @@ public class GameManager : MonoBehaviour
             //레벨 클리어
             isGameOver = true;
             UIManager.instance.gameClearPanel.SetActive(true);
+            GARALoadSceneManager.Instance.LevelUp(); //게임 클리어하면 입장 가능한 스테이지 오픈 
             //LevelManager.Instance.levelClearUI.SetActive(true);
         }
     }
