@@ -4,10 +4,10 @@ public class stage2Vent : MonoBehaviour
 {
     private bool isSafeForSoil = false; // 흙냥이가 통과 가능한 상태인지
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") &&
-            collision.gameObject.TryGetComponent<PlayerController>(out var player))
+        if (collision.CompareTag("Player") &&
+            collision.TryGetComponent<PlayerController>(out var player))
         {
             Interact(player);
         }
