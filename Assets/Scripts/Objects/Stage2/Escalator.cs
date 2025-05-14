@@ -13,10 +13,10 @@ public class Escalator : MonoBehaviour
             Debug.LogError("프리펩 로드 실패");
     }
 
-    internal void PlayEscalator()
+    public void PlayEscalator()
     {
         Vector3 spawnPos = new Vector3(6.12f, -5.02f);
-        Vector3 arrivePos = new Vector3(8.1f, -3.2f);
+        Vector3 arrivePos = new Vector3(8.1f, -3.0f);
         GameObject obj = Instantiate(escalatorPrefabs, spawnPos, Quaternion.identity);
 
         StartCoroutine(Move(obj, spawnPos,arrivePos, 1f));

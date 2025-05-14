@@ -47,7 +47,7 @@ MonoBehaviour:
   sounds:
   - name: Picnic
     clip: {fileID: 8300000, guid: a7365ea4824d59741b26d1b2db825ab1, type: 3}
-    volume: 0.5
+    volume: 0.1
     loop: 1
     source: {fileID: 0}
   - name: Space

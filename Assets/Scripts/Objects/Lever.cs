@@ -5,10 +5,14 @@ using UnityEngine;
 
 public class Lever : MonoBehaviour
 {
-    //델리게이트로 부딪혔을 때 이벤트 호출
     public delegate void LiftChange(Lever lever, bool isPressed);
     public event LiftChange OnLiftChanged;
     private GameObject[] players;
+
+    public Sprite activatedLever;
+    public Sprite defaultLever;
+    private bool isActivated;
+    private SpriteRenderer spriteRenderer;
 
     private bool isPush = false;
 
@@ -16,7 +20,11 @@ public class Lever : MonoBehaviour
     {
         players = GameObject.FindGameObjectsWithTag("Player");
     }
-
+    void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        UpdateLeverSprite();
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -38,14 +46,18 @@ public class Lever : MonoBehaviour
         PushLever();
     }
 
-    //레버를 눌렀을 경우 event Invoke되게
-    //레버를 누르는 키 : e
     private void PushLever()
     {
         if (Input.GetKeyDown(KeyCode.E) && isPush)
         {
             OnLiftChanged?.Invoke(this, true);
+            isActivated = !isActivated;
+            UpdateLeverSprite();
         }
     }
 
+    private void UpdateLeverSprite()
+    {
+        spriteRenderer.sprite = isActivated ? activatedLever : defaultLever;
+    }
 }

@@ -8,9 +8,12 @@ public class GravityLever : MonoBehaviour
 
     private bool isPush = false;
 
+    SpriteRenderer rb;
+
     private void Awake()
     {
         players = GameObject.FindGameObjectsWithTag("Player");
+        rb = GetComponent<SpriteRenderer>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -39,8 +42,9 @@ public class GravityLever : MonoBehaviour
     private void PushGravityLever()
     {
        // Debug.Log("isPush : " + isPush);
-        if (Input.GetKeyDown(KeyCode.E) && isPush)
+        if (Input.GetKeyDown(KeyCode.Q) && isPush)
         {
+            rb.flipX = !rb.flipX;
             Debug.Log("isPush2 : " + isPush);
             if (GravityHandler.instance.gravityReversed == false) GravityHandler.instance.gravityReversed = true;
             else GravityHandler.instance.gravityReversed = false;
