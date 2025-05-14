@@ -7685,6 +7685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a12d387ae4713479e0039672c8cc35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGameClear: 0
   teleportEnable: 1
 --- !u!4 &230292195
 Transform:
@@ -8339,11 +8340,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageClearStarPanel: {fileID: 1481002839}
+  stageUnclearStarPanel: {fileID: 0}
   timeClearStarPanel: {fileID: 0}
+  timeUnclearStarPanel: {fileID: 0}
   zemClearStarPanel: {fileID: 0}
+  zemUnclearStarPanel: {fileID: 0}
   gameClearPanel: {fileID: 170941984}
   gameOverPanel: {fileID: 1187723239}
   gamePausePanel: {fileID: 457696042}
+  gameSettingsPanel: {fileID: 0}
+  inGamePanel: {fileID: 0}
 --- !u!4 &360154336
 Transform:
   m_ObjectHideFlags: 0
@@ -9698,6 +9704,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7452a502ac69d9a4e9545895ca6ce6df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameTime: 0
+  getStartime: 0
+  getZemAmount: 0
+  zemAmountMax: 0
+  stage: 0
 --- !u!4 &660921874
 Transform:
   m_ObjectHideFlags: 0
@@ -9736,7 +9747,7 @@ GameObject:
   - component: {fileID: 672562794}
   - component: {fileID: 672562793}
   - component: {fileID: 672562792}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MoveTile (1)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -20153,7 +20164,7 @@ GameObject:
   - component: {fileID: 1146168634}
   - component: {fileID: 1146168633}
   - component: {fileID: 1146168632}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MoveTile (2)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -20933,6 +20944,11 @@ MonoBehaviour:
   moveSpeed: 5
   jumpForce: 11
   isDie: 0
+  groundCheck: {x: 0.5, y: 0.2}
+  castDistance: 0.45
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
   playerType: 5
 --- !u!224 &1257541381 stripped
 RectTransform:
@@ -23616,7 +23632,7 @@ GameObject:
   - component: {fileID: 1528657126}
   - component: {fileID: 1528657125}
   - component: {fileID: 1528657124}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tile (1)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -26520,6 +26536,11 @@ MonoBehaviour:
   moveSpeed: 5
   jumpForce: 7
   isDie: 0
+  groundCheck: {x: 0.5, y: 0.2}
+  castDistance: 0.45
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
   playerType: 4
 --- !u!4 &1568498788 stripped
 Transform:
@@ -28983,6 +29004,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MoveTile
       objectReference: {fileID: 0}
+    - target: {fileID: 8962045967653560305, guid: 65e94fbf08842c8469181e2d41828223, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29004,3 +29029,4 @@ SceneRoots:
   - {fileID: 660921874}
   - {fileID: 360154336}
   - {fileID: 590145394}
+  - {fileID: 1700105868}
