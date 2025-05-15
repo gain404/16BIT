@@ -142,15 +142,18 @@
 
 
 ## 사용 기술
+<img src="https://github.com/user-attachments/assets/240a39b5-3f03-4ca7-a1e4-de45b491a67b" width="600"><br>
 
-설명…
+
 <br>
 <br>
 <br>
 
 ## 트러블 슈팅
+<img src="https://github.com/user-attachments/assets/aac38677-3714-419f-bda4-b5e0d9f759ea" width="600"><br>
+<img src="https://github.com/user-attachments/assets/44b0a355-67fe-439e-bab6-01378497ca78" width="600"><br>
 
-설명…
+
 <br>
 <br>
 <br>
@@ -158,7 +161,8 @@
 
 ## 만든 사람들
 
-설명...
+![image](https://github.com/user-attachments/assets/a9a6d2e5-719e-4cc3-a1e1-08ed26110b3a)
+
 <br>
 <br>
 <br>
