@@ -7,21 +7,24 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance { get; private set; }
 
-    private int playersAtExit = 0;
+    internal int playersAtExit = 0;
     private int totalPlayers = 2;
 
     private bool isGameOver = false;
     private bool isPaused = false;
+    public bool isGameClear = false;
 
     public bool teleportEnable = true;
 
     void Awake()
     {
+        Debug.Log("isGameOver :" + isGameOver);
+        Time.timeScale = 1;
         //싱글톤
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+           // DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -39,6 +42,8 @@ public class GameManager : MonoBehaviour
             else
                 PauseGame();
         }
+
+        CheckGameClear();
     }
     public void PauseGame()
     {
@@ -59,6 +64,7 @@ public class GameManager : MonoBehaviour
     public void RetryGame()
     {
         Time.timeScale = 1;
+        UIManager.instance.gameOverPanel.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -76,15 +82,17 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+
         if (!isGameOver)
         {
+
             isGameOver = true;
             Time.timeScale = 0;
             //게임오버 UI
             UIManager.instance.gameOverPanel.SetActive(true);
         }
+        isGameOver = false;
     }
-
     public void GameClear()
     {
         //도착한 플레이어가 두 명 이상일 시
@@ -94,7 +102,24 @@ public class GameManager : MonoBehaviour
             //레벨 클리어
             isGameOver = true;
             UIManager.instance.gameClearPanel.SetActive(true);
+            LevelManager.Instance.OnGameFinished();
+            GARALoadSceneManager.Instance.LevelUp(); //게임 클리어하면 입장 가능한 스테이지 오픈 
             //LevelManager.Instance.levelClearUI.SetActive(true);
+        }
+    }
+
+    public void CheckGameClear()
+    {
+        if (playersAtExit >= totalPlayers && !isGameOver)
+        {
+            //레벨 클리어
+            isGameOver = true;
+            UIManager.instance.gameClearPanel.SetActive(true);
+            Debug.Log("게임 클리어");
+            LevelManager.Instance.OnGameFinished();
+            // LevelManager.Instance.levelClearUI.SetActive(true);
+            GARALoadSceneManager.Instance.LevelUp(); //게임 클리어하면 입장 가능한 스테이지 오픈 
+            isGameClear = false;
         }
     }
 }

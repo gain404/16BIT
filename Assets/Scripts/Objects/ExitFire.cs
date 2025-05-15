@@ -4,29 +4,20 @@ using UnityEngine;
 
 public class ExitFire : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    public Sprite openDoor;
+    private SpriteRenderer spriteRenderer;
+    void Start()
     {
-        Debug.Log("OnCollisionEnter2D");
-        PlayerController player = collision.gameObject.GetComponent<PlayerController>();
-        if (collision.gameObject.CompareTag("Player"))
-        {
-             IsExitForFirePlayer(player.playerType); // PlayerType에 Fire, Water 추가 필요
-        }
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
-
-    internal bool IsExitForFirePlayer(PlayerType playerType)  // PlayerType에 Fire, Water 추가 필요
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        switch (playerType)
+        PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+        if (collision.gameObject.CompareTag("Player") && player.playerType == PlayerType.Fire)
         {
-            case PlayerType.Fire:
-                Debug.Log("불꽃 캐릭터 탈출");
-                return true;
-            case PlayerType.Water:
-                Debug.Log("물 캐릭터는 불꽃 탈출로로 탈출할 수 없습니다.");
-                return false;
-            default:
-                Debug.LogError("발생할 수 없는 오류입니다.");
-                return false;
+            spriteRenderer.sprite = openDoor;
+            collision.GetComponent<PlayerController>().enabled = false;
+            GameManager.instance.GameClear();
         }
     }
 }
